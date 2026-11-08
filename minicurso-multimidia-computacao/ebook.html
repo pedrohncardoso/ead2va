@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-book Interativo: A Arte da Multimodalidade em Computação</title>
+  <meta name="description" content="E-book educacional interativo desenvolvido para a 2ª VA: aprenda a combinar texto, imagem, áudio e vídeo no ensino de Computação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       Variáveis e Tema do E-book
+       ========================================================= */
+    :root {
+      --cor-fundo: #0f172a;
+      --cor-papel: #ffffff;
+      --cor-texto: #1e293b;
+      --cor-suave: #64748b;
+      --cor-destaque: #2563eb;
+      --cor-destaque-escura: #1d4ed8;
+      --cor-realce: #f59e0b;
+      --cor-borda: #e2e8f0;
+      --cor-alt: #f8fafc;
+      --largura-livro: 840px;
+      --raio: 12px;
+    }
+
+    [data-contraste="alto"] {
+      --cor-fundo: #000000;
+      --cor-papel: #000000;
+      --cor-texto: #ffffff;
+      --cor-suave: #e2e8f0;
+      --cor-destaque: #ffff00;
+      --cor-destaque-escura: #ffffff;
+      --cor-realce: #00ffff;
+      --cor-borda: #ffffff;
+      --cor-alt: #111111;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+      background: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Barra Superior de Controles */
+    .livro-topo {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 10px 20px;
+    }
+    .livro-topo__interno {
+      max-width: var(--largura-livro);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .livro-voltar {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+    }
+    .livro-voltar:hover { text-decoration: underline; color: #fff; }
+
+    .livro-controles {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-controle {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s;
+    }
+    .btn-controle:hover { background: rgba(255, 255, 255, 0.25); }
+
+    /* Barra de Progresso de Leitura */
+    .progresso-container {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .progresso-barra {
+      height: 100%;
+      width: 0%;
+      background: #38bdf8;
+      transition: width 0.2s;
+    }
+
+    /* Container do E-book */
+    .livro-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px 80px;
+    }
+
+    .livro {
+      max-width: var(--largura-livro);
+      width: 100%;
+      background: var(--cor-papel);
+      border-radius: var(--raio);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      border: 1px solid var(--cor-borda);
+    }
+
+    /* Páginas do E-book */
+    .pagina {
+      padding: 48px;
+      border-bottom: 2px dashed var(--cor-borda);
+      position: relative;
+    }
+    .pagina:last-child { border-bottom: none; }
+
+    .pagina-num {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cor-suave);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Estilo da Capa */
+    .capa {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 72px 48px;
+      text-align: center;
+      border-radius: var(--raio) var(--raio) 0 0;
+      border-bottom: 5px solid var(--cor-destaque);
+    }
+    [data-contraste="alto"] .capa {
+      background: #000;
+      border: 2px solid #fff;
+    }
+    .capa-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid #38bdf8;
+      color: #7dd3fc;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    .capa h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    .capa-subtitulo {
+      font-size: 1.35rem;
+      color: #cbd5e1;
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+    .capa-icones {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 36px 0;
+    }
+    .capa-icone-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+    }
+    .capa-creditos {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 20px;
+    }
+
+    /* Sumário e Navegação Interna */
+    .sumario {
+      background: var(--cor-alt);
+      border: 1px solid var(--cor-borda);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .sumario h3 { margin-top: 0; }
+    .sumario-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .sumario-lista a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--cor-papel);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      color: var(--cor-texto);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .sumario-lista a:hover {
+      background: #eff6ff;
+      border-color: var(--cor-destaque);
+      transform: translateX(4px);
+    }
+
+    /* Conteúdo dos Capítulos */
+    h2 {
+      font-size: 1.85rem;
+      color: var(--cor-texto);
+      margin: 12px 0 20px;
+      border-bottom: 2px solid var(--cor-borda);
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 1.35rem;
+      margin: 28px 0 12px;
+      color: var(--cor-destaque);
+    }
+    [data-contraste="alto"] h3 { color: #ffff00; }
+
+    p { margin: 0 0 1.2em; }
+
+    /* Caixa de Destaque Didático */
+    .box-didatico {
+      background: #eff6ff;
+      border-left: 5px solid var(--cor-destaque);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    [data-contraste="alto"] .box-didatico {
+      background: #111;
+      border-color: #ffff00;
+      border-left-width: 5px;
+    }
+    .box-didatico h4 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: var(--cor-destaque);
+    }
+    [data-contraste="alto"] .box-didatico h4 { color: #ffff00; }
+
+    /* Tabela de Decomposição Multimodal */
+    .tabela-multimodal {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      border: 1px solid var(--cor-borda);
+    }
+    .tabela-multimodal th, .tabela-multimodal td {
+      padding: 14px 18px;
+      border: 1px solid var(--cor-borda);
+      text-align: left;
+    }
+    .tabela-multimodal th {
+      background: var(--cor-alt);
+      color: var(--cor-texto);
+      font-weight: 700;
+    }
+
+    /* Box de Código e Pseudocódigo */
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 18px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Diagrama Visual Vetorial Embutido */
+    .diagrama-box {
+      background: var(--cor-alt);
+      border: 1px solid var(--cor-borda);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .diagrama-svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Navegador Inferior de Capítulos */
+    .nav-pagina {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--cor-borda);
+    }
+    .nav-pagina a {
+      color: var(--cor-destaque);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-pagina a:hover { text-decoration: underline; }
+
+    /* Estilos para Impressão / FlipHTML5 (Exportar como PDF com Ctrl+P) */
+    @media print {
+      body { background: #fff; color: #000; }
+      .livro-topo, .progresso-container, .nav-pagina { display: none !important; }
+      .livro-wrapper { padding: 0; }
+      .livro { box-shadow: none; border: none; max-width: 100%; }
+      .pagina { page-break-after: always; padding: 30mm 20mm; border: none; }
+      .capa { page-break-after: always; padding: 50mm 20mm; background: #1e3a8a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 680px) {
+      .pagina { padding: 28px 20px; }
+      .capa { padding: 48px 20px; }
+      .capa-icones { gap: 10px; }
+      .capa-icone-box { width: 48px; height: 48px; font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra Superior Interativa -->
+  <header class="livro-topo" role="banner">
+    <div class="livro-topo__interno">
+      <a class="livro-voltar" href="index.html">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M19 12H5M12 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Voltar ao Minicurso
+      </a>
+      <div class="livro-controles">
+        <button type="button" class="btn-controle" onclick="window.print()" title="Imprima ou salve como PDF para subir no FlipHTML5">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="6" y="14" width="12" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          Salvar PDF
+        </button>
+        <button type="button" class="btn-controle" id="btn-contraste-ebook" aria-pressed="false">
+          Alto Contraste
+        </button>
+      </div>
+    </div>
+    <div class="progresso-container" aria-hidden="true">
+      <div class="progresso-barra" id="barra-progresso"></div>
+    </div>
+  </header>
+
+  <main class="livro-wrapper">
+    <article class="livro" id="conteudo-livro">
+
+      <!-- ==================== CAPA ==================== -->
+      <section class="pagina capa" id="capa">
+        <span class="capa-badge">E-book Interativo · 2ª VA</span>
+        <h1>A Arte da Multimodalidade em Computação</h1>
+        <p class="capa-subtitulo">Como Orquestrar Texto, Imagem, Áudio e Vídeo de Acordo com Objetivos de Aprendizagem</p>
+        
+        <div class="capa-icones" aria-hidden="true">
+          <div class="capa-icone-box" title="Texto">📝</div>
+          <div class="capa-icone-box" title="Imagem">🖼️</div>
+          <div class="capa-icone-box" title="Áudio">🎧</div>
+          <div class="capa-icone-box" title="Vídeo">🎬</div>
+        </div>
+
+        <div class="capa-creditos">
+          <p><strong>Universidade Federal Rural de Pernambuco (UFRPE)</strong></p>
+          <p>Disciplina de Recursos Educacionais Multimídia / Design Instrucional · 2026</p>
+        </div>
+      </section>
+
+      <!-- ==================== APRESENTAÇÃO & SUMÁRIO ==================== -->
+      <section class="pagina" id="sumario">
+        <span class="pagina-num">Pág. 02</span>
+        <h2>Apresentação & Sumário Interativo</h2>
+        <p>Ensinar conceitos abstratos de Computação — como arquitetura de dados, recursão e protocolos de rede — é um dos maiores desafios pedagógicos da atualidade. Se nos limitamos a projetar telas repletas de código ou a ler definições estáticas, sobrecarregamos a cognição do estudante sem construir significado real.</p>
+        
+        <p>Este e-book fundamenta como a mente humana processa mídias e demonstra, através de um caso prático (<strong>Estruturas de Dados: Pilhas e Filas</strong>), como projetar recursos didáticos no Canva, gravar no Audacity e revisar criticamente com assistentes de IA.</p>
+
+        <nav class="sumario" aria-label="Sumário dos capítulos">
+          <h3>Sumário dos Capítulos</h3>
+          <ol class="sumario-lista">
+            <li><a href="#capitulo-1"><span><strong>Capítulo 1:</strong> Fundamentos Cognitivos da Multimodalidade</span> <span>→</span></a></li>
+            <li><a href="#capitulo-2"><span><strong>Capítulo 2:</strong> Estudo de Caso Computacional: Pilhas e Filas</span> <span>→</span></a></li>
+            <li><a href="#capitulo-3"><span><strong>Capítulo 3:</strong> Prática com Canva, Audacity e IA</span> <span>→</span></a></li>
+            <li><a href="#capitulo-4"><span><strong>Capítulo 4:</strong> O Protocolo 4C de Revisão Pedagógica</span> <span>→</span></a></li>
+            <li><a href="#referencias"><span><strong>Referências:</strong> Literatura Acadêmica ABNT</span> <span>→</span></a></li>
+          </ol>
+        </nav>
+      </section>
+
+      <!-- ==================== CAPÍTULO 1 ==================== -->
+      <section class="pagina" id="capitulo-1">
+        <span class="pagina-num">Pág. 03</span>
+        <h2>Capítulo 1: Fundamentos Cognitivos da Multimodalidade</h2>
+        <p>Por que alguns vídeos didáticos geram compreensão imediata enquanto outros provocam fadiga e distração? A resposta está na **Teoria Cognitiva da Aprendizagem Multimídia (TCAM)** desenvolvida pelo psicólogo Richard Mayer.</p>
+
+        <h3>O Modelo de Duplo Canal de Mayer</h3>
+        <p>O cérebro humano processa informações visuais e auditivas por canais sensoriais separados:</p>
+        <ul>
+          <li><strong>Canal Pictórico / Visual:</strong> Responsável por processar o que vemos (esquemas gráficos, diagramas de memória, código formatado, animações espaciais).</li>
+          <li><strong>Canal Verbal / Auditivo:</strong> Responsável por processar a fala, locuções, metáforas orais e sons explicativos.</li>
+        </ul>
+
+        <div class="box-didatico">
+          <h4>O Princípio da Redundância (O Erro Mais Comum)</h4>
+          <p>Quando um professor exibe um slide repleto de texto e <strong>lê exatamente as mesmas palavras em voz alta</strong>, ele comete a falácia da redundância. O texto escrito disputa o processador fonológico com o áudio, sobrecarregando a memória de trabalho do aprendiz.</p>
+          <p><strong>A regra de ouro:</strong> Narração falada + Imagem ou Diagrama limpo = <em>Aprendizagem máxima</em>. Narração falada + Texto quilométrico idêntico = <em>Sobrecarga cognitiva</em>.</p>
+        </div>
+
+        <h3>Os Princípios Essenciais de Mayer Aplicados à Computação</h3>
+        <ol>
+          <li><strong>Princípio da Coerência:</strong> Remova qualquer meme, efeito sonoro estridente ou bloco de código desnecessário que não contribua com a lógica central.</li>
+          <li><strong>Princípio da Sinalização:</strong> Use cores de destaque (ex: laranja vibrante) para orientar os olhos do estudante para a linha de código ou o ponteiro que está em execução.</li>
+          <li><strong>Princípio da Contiguidade Espacial:</strong> Posicione a legenda ou o comentário técnico colado exatamente ao nó que ele descreve, nunca em uma tabela distante.</li>
+        </ol>
+
+        <div class="nav-pagina">
+          <a href="#sumario">← Voltar ao Sumário</a>
+          <a href="#capitulo-2">Avançar para o Capítulo 2 →</a>
+        </div>
+      </section>
+
+      <!-- ==================== CAPÍTULO 2 ==================== -->
+      <section class="pagina" id="capitulo-2">
+        <span class="pagina-num">Pág. 04</span>
+        <h2>Capítulo 2: O Conceito Computacional em Formatos Complementares</h2>
+        <p>Para ilustrar a orquestração prática, tomemos o ensino de **Estruturas de Dados Lineares: Pilhas (Stacks) e Filas (Queues)**. Em vez de usar todas as mídias para dizer a mesma coisa, cada formato assume uma função didática insubstituível:</p>
+
+        <div class="diagrama-box">
+          <svg class="diagrama-svg" viewBox="0 0 680 200" width="100%" height="200" aria-label="Diagrama esquemático comparando Pilha e Fila">
+            <!-- Pilha -->
+            <rect x="40" y="30" width="220" height="140" rx="8" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+            <text x="150" y="55" font-size="16" font-weight="700" text-anchor="middle" fill="#1e1b4b">PILHA (LIFO)</text>
+            <rect x="70" y="125" width="160" height="28" rx="4" fill="#3b82f6"/>
+            <text x="150" y="144" font-size="12" fill="#fff" text-anchor="middle">Item 1 (Fundo)</text>
+            <rect x="70" y="92" width="160" height="28" rx="4" fill="#2563eb"/>
+            <text x="150" y="111" font-size="12" fill="#fff" text-anchor="middle">Item 2</text>
+            <rect x="70" y="59" width="160" height="28" rx="4" fill="#1d4ed8"/>
+            <text x="150" y="78" font-size="12" fill="#fff" text-anchor="middle">Item 3 (Topo / Top)</text>
+            <!-- Seta Topo -->
+            <path d="M 235 73 L 260 73" stroke="#ea580c" stroke-width="3" marker-end="url(#arrow)"/>
+            <text x="265" y="77" font-size="12" font-weight="700" fill="#ea580c">Entrada/Saída</text>
+
+            <!-- Fila -->
+            <rect x="420" y="30" width="220" height="140" rx="8" fill="#ecfdf5" stroke="#065f46" stroke-width="2"/>
+            <text x="530" y="55" font-size="16" font-weight="700" text-anchor="middle" fill="#064e3b">FILA (FIFO)</text>
+            <!-- Blocos Fila -->
+            <rect x="440" y="80" width="40" height="40" rx="4" fill="#10b981"/>
+            <text x="460" y="105" font-size="12" fill="#fff" text-anchor="middle">1º</text>
+            <rect x="490" y="80" width="40" height="40" rx="4" fill="#059669"/>
+            <text x="510" y="105" font-size="12" fill="#fff" text-anchor="middle">2º</text>
+            <rect x="540" y="80" width="40" height="40" rx="4" fill="#047857"/>
+            <text x="560" y="105" font-size="12" fill="#fff" text-anchor="middle">3º</text>
+            <!-- Setas Fila -->
+            <text x="430" y="145" font-size="11" font-weight="700" fill="#047857">Saída (Head)</text>
+            <text x="560" y="145" font-size="11" font-weight="700" fill="#047857">Entrada (Tail)</text>
+          </svg>
+        </div>
+
+        <table class="tabela-multimodal">
+          <thead>
+            <tr>
+              <th>Formato</th>
+              <th>Função Pedagógica Exclusiva</th>
+              <th>Aplicação no Conceito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Texto</strong></td>
+              <td>Precisão formal, sintaxe exata e garantias assintóticas.</td>
+              <td>Define os invariantes lógicos: LIFO (*Last In, First Out*) e FIFO (*First In, First Out*). Documenta complexidade $O(1)$.</td>
+            </tr>
+            <tr>
+              <td><strong>Imagem</strong></td>
+              <td>Representação espacial de nós e topologia de memória.</td>
+              <td>Ilustra os ponteiros de endereço de memória (`Top` vs. `Head` e `Tail`), permitindo fixação visual do estado estrutural.</td>
+            </tr>
+            <tr>
+              <td><strong>Áudio</strong></td>
+              <td>Modelos mentais, empatia, ritmo e ênfase dialógica.</td>
+              <td>Apresenta a metáfora da pilha de pratos e da fila do bandejão com entonação pausada e efeitos pontuais de clique/pop.</td>
+            </tr>
+            <tr>
+              <td><strong>Vídeo</strong></td>
+              <td>Transformação dinâmica de estados ao longo do tempo.</td>
+              <td>Demonstra a operação `push` e `dequeue` em ação contínua, evidenciando o momento em que o ponteiro muda de posição.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="nav-pagina">
+          <a href="#capitulo-1">← Capítulo 1</a>
+          <a href="#capitulo-3">Capítulo 3 →</a>
+        </div>
+      </section>
+
+      <!-- ==================== CAPÍTULO 3 ==================== -->
+      <section class="pagina" id="capitulo-3">
+        <span class="pagina-num">Pág. 05</span>
+        <h2>Capítulo 3: Produção com Canva, Audacity e IA</h2>
+        <p>A teoria só ganha vida com ferramentas acessíveis. Veja o roteiro prático para dominar a tríade de criação:</p>
+
+        <h3>1. Canva: O Design Visual Didático</h3>
+        <ul>
+          <li><strong>Paleta Funcional:</strong> Reserve a cor primária (ex: Azul `#1d4ed8`) para a estrutura base e uma cor de acento vibrante (ex: Laranja `#ea580c`) exclusivamente para o elemento em foco (o ponteiro ativo).</li>
+          <li><strong>Acessibilidade de Contraste:</strong> Mantenha uma razão de contraste mínima de 4,5:1 (conforme WCAG AA) para textos normais sobre fundos claros ou escuros.</li>
+          <li><strong>Eliminação de Ruído Gráfico:</strong> Evite sombras pesadas, ilustrações decorativas genéricas ou ilustrações 3D distorcidas que poluam a tela.</li>
+        </ul>
+
+        <h3>2. Audacity: Tratamento e Edição de Áudio</h3>
+        <ul>
+          <li><strong>Passo 1 (Perfil de Ruído):</strong> Grave 5 segundos de silêncio na sua sala. Selecione esse trecho, abra <code>Efeitos -> Redução de Ruído</code> e clique em <em>Obter Perfil de Ruído</em>. Em seguida, selecione toda a faixa e aplique a redução.</li>
+          <li><strong>Passo 2 (Normalização de Volume):</strong> Use o efeito <code>Normalizar</code> em -1.0 dB para evitar distorções ou quedas bruscas de volume no fone do aluno.</li>
+          <li><strong>Passo 3 (Sinalização Acústica):</strong> Insira um som pontual suave (um clique ou pop de 0,2s) no instante em que o elemento entra no topo da pilha. Esse estímulo auditivo funciona como ancoragem de atenção (*cueing*).</li>
+        </ul>
+
+        <h3>3. Assistentes de IA: Co-autoria e Teste de Clareza</h3>
+        <p>Utilize modelos de linguagem (ChatGPT, Claude ou Gemini) para identificar pontos cegos no seu planejamento instrucional:</p>
+        <pre><code>"Aja como um estudante iniciante de Computação sem base em lógica.
+Leia esta explicação de Pilhas e aponte os 3 termos que parecem confusos.
+Em seguida, sugira duas analogias do cotidiano que expliquem o conceito
+sem recorrer a jargões técnicos."</code></pre>
+
+        <div class="nav-pagina">
+          <a href="#capitulo-2">← Capítulo 2</a>
+          <a href="#capitulo-4">Capítulo 4 →</a>
+        </div>
+      </section>
+
+      <!-- ==================== CAPÍTULO 4 ==================== -->
+      <section class="pagina" id="capitulo-4">
+        <span class="pagina-num">Pág. 06</span>
+        <h2>Capítulo 4: O Protocolo 4C de Revisão Pedagógica</h2>
+        <p>Antes de publicar qualquer material, realize uma auditoria diagnóstica utilizando a **Matriz 4C**:</p>
+
+        <div class="box-didatico">
+          <h4>1. C - Clareza (Compreensão Imediata)</h4>
+          <p>O texto utiliza vocabulário acessível? Os diagramas possuem legendas autoexplicativas? A tipografia tem tamanho e espaçamento adequados para leitura confortável?</p>
+        </div>
+
+        <div class="box-didatico">
+          <h4>2. C - Coerência (Mayer's Coherence)</h4>
+          <p>Todo elemento sonoro e visual tem uma justificativa pedagógica explícita? Foram removidos fundos musicais excessivos e metáforas rebuscadas?</p>
+        </div>
+
+        <div class="box-didatico">
+          <h4>3. C - Carga Cognitiva (Sweller's Cognitive Load)</h4>
+          <p>O esforço mental exigido é dedicado à assimilação da lógica computacional (carga pertinente) e não a decifrar a interface poluída (carga extrínseca)?</p>
+        </div>
+
+        <div class="box-didatico">
+          <h4>4. C - Complementaridade (Sinergia Real)</h4>
+          <p>Se o áudio for desligado, a imagem ainda faz sentido? Se o vídeo for pausado, o texto complementa a reflexão? As mídias cooperam ou disputam atenção?</p>
+        </div>
+
+        <div class="nav-pagina">
+          <a href="#capitulo-3">← Capítulo 3</a>
+          <a href="#referencias">Referências →</a>
+        </div>
+      </section>
+
+      <!-- ==================== REFERÊNCIAS ==================== -->
+      <section class="pagina" id="referencias">
+        <span class="pagina-num">Pág. 07</span>
+        <h2>Referências Bibliográficas (Normas ABNT)</h2>
+        <ul>
+          <li>BLOOM, Benjamin S. <em>Taxonomia de objetivos educacionais</em>: domínio cognitivo. Porto Alegre: Globo, 1972.</li>
+          <li>CLARK, Ruth Colvin; MAYER, Richard E. <em>E-learning and the science of instruction</em>: proven guidelines for consumers and designers of multimedia learning. 4. ed. Hoboken: Wiley, 2016.</li>
+          <li>FILATRO, Andrea. <em>Design instrucional na prática</em>. São Paulo: Pearson Education do Brasil, 2008.</li>
+          <li>MAYER, Richard E. <em>Multimedia learning</em>. 3. ed. Cambridge: Cambridge University Press, 2020.</li>
+          <li>PAIVIO, Allan. <em>Mental representations</em>: a dual coding approach. Oxford: Oxford University Press, 1986.</li>
+          <li>SWELLER, John. Cognitive load during problem solving: effects on learning. <em>Cognitive Science</em>, v. 12, n. 2, p. 257-285, 1988.</li>
+        </ul>
+
+        <div class="nav-pagina">
+          <a href="#capitulo-4">← Voltar ao Capítulo 4</a>
+          <a href="#capa">Voltar ao Topo ↑</a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <script>
+    // Controle de barra de progresso de leitura
+    window.addEventListener('scroll', function() {
+      var docEl = document.documentElement;
+      var scrollTop = docEl.scrollTop || document.body.scrollTop;
+      var scrollHeight = docEl.scrollHeight - docEl.clientHeight;
+      var percent = (scrollTop / scrollHeight) * 100;
+      document.getElementById('barra-progresso').style.width = percent + '%';
+    });
+
+    // Controle de Alto Contraste no E-book
+    var btnContraste = document.getElementById('btn-contraste-ebook');
+    btnContraste.addEventListener('click', function() {
+      var isAlto = document.documentElement.getAttribute('data-contraste') === 'alto';
+      if (isAlto) {
+        document.documentElement.removeAttribute('data-contraste');
+        btnContraste.setAttribute('aria-pressed', 'false');
+      } else {
+        document.documentElement.setAttribute('data-contraste', 'alto');
+        btnContraste.setAttribute('aria-pressed', 'true');
+      }
+    });
+  </script>
+</body>
+</html>

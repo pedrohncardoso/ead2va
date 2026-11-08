@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Multimídia em Computação: Texto, Imagem, Áudio e Vídeo</title>
+  <meta name="description" content="Minicurso EaD: Aprenda a combinar texto, imagem, áudio e vídeo de acordo com objetivos de aprendizagem para o ensino de Computação.">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Atkinson Hyperlegible: Fonte desenvolvida pelo Braille Institute para máxima legibilidade -->
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- ===== Barra de Acessibilidade ===== -->
+  <div class="barra-acess" role="region" aria-label="Opções de acessibilidade">
+    <div class="container barra-acess__interno">
+      <span class="barra-acess__titulo">Acessibilidade</span>
+      <div class="barra-acess__grupo" role="group" aria-label="Tamanho do texto">
+        <button type="button" class="acess-btn" data-fonte="-1" aria-label="Diminuir tamanho do texto">A−</button>
+        <button type="button" class="acess-btn" data-fonte="0" aria-label="Tamanho de texto padrão">A</button>
+        <button type="button" class="acess-btn" data-fonte="1" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="acess-btn acess-btn--largo" id="btn-contraste" aria-pressed="false">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        Alto contraste
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== Topo e Navegação ===== -->
+  <header class="topo">
+    <div class="container topo__interno">
+      <a class="marca" href="#inicio">
+        <span class="marca__icone" aria-hidden="true">DM</span>
+        <span>Multimídia em Computação</span>
+      </a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Menu
+      </button>
+      <nav id="menu" class="menu" aria-label="Navegação principal">
+        <ol>
+          <li><a href="#sobre"><span class="menu__num" aria-hidden="true">1</span>Sobre</a></li>
+          <li><a href="#objetivos"><span class="menu__num" aria-hidden="true">2</span>Objetivos</a></li>
+          <li><a href="#video"><span class="menu__num" aria-hidden="true">3</span>Vídeo</a></li>
+          <li><a href="#ebook"><span class="menu__num" aria-hidden="true">4</span>E-book</a></li>
+          <li><a href="#midia-alternativa"><span class="menu__num" aria-hidden="true">5</span>Infográfico</a></li>
+          <li><a href="#avaliacao"><span class="menu__num" aria-hidden="true">6</span>Avaliação</a></li>
+          <li><a href="#revisao">Revisão</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- ===== Seção Inicial / Hero ===== -->
+    <section id="inicio" class="inicio" aria-labelledby="titulo-curso">
+      <div class="container">
+        <p class="etiqueta">Minicurso EaD · 1ª e 2ª VA Integradas</p>
+        <h1 id="titulo-curso">Design Multimídia em Computação: Texto, Imagem, Áudio e Vídeo</h1>
+        <p class="subtitulo">Aprenda a orquestrar mídias complementares com intencionalidade pedagógica, representar conceitos computacionais no Canva, Audacity e IA, e auditar a clareza e coerência dos seus materiais.</p>
+
+        <!-- Acesso rápido aos materiais da 1ª e 2ª VA -->
+        <nav class="acoes" aria-label="Acesso rápido aos materiais do curso">
+          <a class="acao acao--principal" href="#video">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            Vídeo-aula (1ª VA)
+          </a>
+          <!-- Link do E-book Interativo (2ª VA - Item 1) -->
+          <a class="acao" href="ebook.html" target="_blank">
+            Ler E-book Interativo (2ª VA)
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr">(abre em nova aba)</span>
+          </a>
+          <!-- Link da Mídia Alternativa / Infográfico Interativo (2ª VA - Item 2) -->
+          <a class="acao" href="infografico.html" target="_blank">
+            Explorar Infográfico Interativo (2ª VA)
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr">(abre em nova aba)</span>
+          </a>
+          <!-- Link da Avaliação Interativa no Genially -->
+          <a class="acao" href="#avaliacao">
+            Avaliação Interativa (1ª VA)
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </nav>
+
+        <!-- Identificação do Autor -->
+        <div class="autor" aria-label="Identificação do autor">
+          <span class="autor__avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor"/></svg>
+          </span>
+          <dl class="autor__dados">
+            <div><dt>Autor / Estudante</dt><dd>Equipe de Design Instrucional</dd></div>
+            <div><dt>Disciplina</dt><dd>Recursos Educacionais Multimídia / Design Instrucional</dd></div>
+            <div><dt>Instituição</dt><dd>UFRPE · Licenciatura em Computação</dd></div>
+          </dl>
+        </div>
+
+        <ul class="info" aria-label="Resumo dos recursos do curso">
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Vídeo-aula explicativa completa
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            E-book interativo (FlipHTML5 / Genially)
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17v-4M12 17V7M16 17v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Infográfico interativo de apoio
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M9 11l3 3L22 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Avaliação formativa com feedback
+          </li>
+        </ul>
+
+        <!-- Trilha de Estudo Sequencial -->
+        <div class="trilha">
+          <h2 class="trilha__titulo">Sua trilha de estudo sequencial</h2>
+          <p class="trilha__texto">Siga os 6 passos ordenados para desenvolver a competência de criar materiais didáticos multimodais de alta qualidade.</p>
+          <ol class="trilha__lista">
+            <li><a href="#sobre"><span class="trilha__num">1</span><span><strong>Conheça o Minicurso</strong><small>Público-alvo, fundamentos pedagógicos e pré-requisitos</small></span></a></li>
+            <li><a href="#objetivos"><span class="trilha__num">2</span><span><strong>Analise os Objetivos</strong><small>Metas de aprendizagem baseadas na Taxonomia de Bloom</small></span></a></li>
+            <li><a href="#video"><span class="trilha__num">3</span><span><strong>Assista à Vídeo-aula (1ª VA)</strong><small>Fundamentação teórica e demonstração prática inicial</small></span></a></li>
+            <li><a href="#ebook"><span class="trilha__num">4</span><span><strong>Explore o E-book Interativo (2ª VA)</strong><small>Guia aprofundado com capítulos, Canva, Audacity e IA</small></span></a></li>
+            <li><a href="#midia-alternativa"><span class="trilha__num">5</span><span><strong>Consulte o Infográfico Interativo (2ª VA)</strong><small>Mídia alternativa: Matriz visual de Pilhas vs. Filas</small></span></a></li>
+            <li><a href="#avaliacao"><span class="trilha__num">6</span><span><strong>Realize a Avaliação Interativa (1ª VA)</strong><small>10 questões com feedback formativo imediato</small></span></a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Passo 1: Sobre ===== -->
+    <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
+      <div class="container">
+        <p class="passo">Passo 1 de 6</p>
+        <h2 id="titulo-sobre">Sobre o Minicurso</h2>
+        <p class="intro">Ensinar Computação exige transitar entre abstrações lógicas e aplicações práticas. Este minicurso capacita educadores e estudantes a desenhar experiências multimídia intencionais.</p>
+
+        <div class="grade grade--2">
+          <div class="cartao cartao--destaque">
+            <h3>
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5M15 14.2c.6-.2 1.3-.2 2-.2 2.8 0 4.5 2 4.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Público-alvo
+            </h3>
+            <p>Licenciandos em Computação, professores do Ensino Fundamental/Médio/Técnico e criadores de conteúdo educacional que desejam enriquecer suas aulas sem sobrecarregar a mente do aprendiz.</p>
+          </div>
+          <div class="cartao cartao--secundaria">
+            <h3>
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 21H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              Conhecimentos prévios
+            </h3>
+            <ul class="lista-check">
+              <li>Noções introdutórias de lógica de programação (ex: variáveis, listas).</li>
+              <li>Acesso a navegadores web e curiosidade para explorar Canva, Audacity ou assistentes de IA (ChatGPT, Gemini, Claude).</li>
+            </ul>
+          </div>
+        </div>
+
+        <a class="proximo" href="#objetivos">Próximo passo: <strong>Objetivos de Aprendizagem</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Passo 2: Objetivos ===== -->
+    <section id="objetivos" class="secao secao--alt" aria-labelledby="titulo-objetivos">
+      <div class="container">
+        <p class="passo">Passo 2 de 6</p>
+        <h2 id="titulo-objetivos">O que você vai aprender</h2>
+        <p class="intro">Ao concluir este percurso instrucional, você terá desenvolvido as seguintes competências:</p>
+
+        <ol class="objetivos">
+          <li><strong>Identificar</strong> como os canais visual e auditivo interagem no cérebro humano com base na Teoria da Aprendizagem Multimídia de Richard Mayer.</li>
+          <li><strong>Planejar</strong> a representação de um conceito de Computação (como Estruturas de Dados Lineares) dividindo o conteúdo entre texto, imagem, áudio e vídeo de forma não-redundante.</li>
+          <li><strong>Produzir</strong> esquemas visuais didáticos no Canva, narrações limpas e sonorizadas no Audacity e roteiros estruturados com o apoio de assistentes de IA.</li>
+          <li><strong>Auditar e Revisar</strong> materiais instrucionais utilizando a Matriz 4C (Clareza, Coerência, Carga Cognitiva e Complementaridade).</li>
+        </ol>
+
+        <a class="proximo" href="#video">Próximo passo: <strong>Vídeo-aula</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Passo 3: Vídeo-aula (1ª VA) ===== -->
+    <section id="video" class="secao" aria-labelledby="titulo-video">
+      <div class="container">
+        <p class="passo">Passo 3 de 6</p>
+        <span class="badge-va badge-va--1">Material da 1ª VA</span>
+        <h2 id="titulo-video">Vídeo-aula: Fundamentos da Multimodalidade</h2>
+        <p class="intro">Assista à aula principal que introduz a combinação dos canais de mídia no ensino de Computação. Pause nos pontos de reflexão e observe os exemplos aplicados.</p>
+
+        <div class="video">
+          <!-- Embed do YouTube configurado de forma responsiva -->
+          <iframe
+            id="player"
+            src="https://www.youtube.com/embed/1XwPqHvhtDc?hl=pt-BR&amp;rel=0"
+            title="Vídeo-aula: Como combinar texto, imagem, áudio e vídeo em Computação"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="grade grade--3">
+          <div class="cartao">
+            <h4>Canal Visual</h4>
+            <p>Imagens e diagramas funcionam para relações espaciais e estados de memória (ex: elementos de uma Pilha).</p>
+          </div>
+          <div class="cartao">
+            <h4>Canal Verbal / Auditivo</h4>
+            <p>O áudio conduz o raciocínio sem disputar atenção ocular quando a imagem está em movimento.</p>
+          </div>
+          <div class="cartao">
+            <h4>Evite Redundância</h4>
+            <p>Nunca leia em voz alta exatamente o mesmo bloco de texto longo projetado na tela.</p>
+          </div>
+        </div>
+
+        <a class="proximo" href="#ebook">Próximo passo: <strong>E-book Interativo</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Passo 4: E-book Interativo (2ª VA - Item 1) ===== -->
+    <section id="ebook" class="secao secao--alt" aria-labelledby="titulo-ebook">
+      <div class="container">
+        <p class="passo">Passo 4 de 6</p>
+        <span class="badge-va badge-va--2">2ª VA · Item 1 Obrigatório</span>
+        <h2 id="titulo-ebook">E-book Interativo: Guia da Multimodalidade</h2>
+        <p class="intro">Material interativo completo publicado no Genially / FlipHTML5, formatado com capa, sumário navegável, estudo de caso de Computação (Pilhas vs. Filas) e roteiro prático para ferramentas.</p>
+
+        <div class="grade grade--2">
+          <div class="cartao cartao--destaque cartao--link">
+            <div>
+              <h3>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                Ler E-book no Genially / FlipHTML5
+              </h3>
+              <p>Experiência interativa de folheamento digital com botões clicáveis, diagramas dinâmicos e notas de rodapé acessíveis.</p>
+              <ul class="lista-check">
+                <li>Capítulo 1: Fundamentos Cognitivos da Multimodalidade.</li>
+                <li>Capítulo 2: O Estudo de Caso Computacional: Pilha e Fila.</li>
+                <li>Capítulo 3: Produção com Canva, Audacity e IA.</li>
+                <li>Capítulo 4: O Protocolo 4C de Revisão.</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;">
+              <a class="botao botao--grande" href="ebook.html" target="_blank">
+                Abrir E-book Interativo
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="sr">(abre em nova aba)</span>
+              </a>
+              <a class="botao botao--secundario" href="https://view.genially.com/6785290c0e261418d4787b40/mobile-e-book-fundamentos-do-design-instrucional" target="_blank" rel="noopener">
+                Ver no Genially / FlipHTML5
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="cartao">
+            <h3>Estrutura e Recursos do E-book</h3>
+            <p>O livro foi projetado seguindo as diretrizes de design visual, contendo:</p>
+            <ol class="lista-check">
+              <li><strong>Capa Ilustrada:</strong> Identidade visual coerente e paleta acessível.</li>
+              <li><strong>Sumário Clicável:</strong> Navegação imediata entre as seções.</li>
+              <li><strong>Boxes de Dica Prática:</strong> Destaques de comandos no Audacity e prompts para assistentes de IA.</li>
+              <li><strong>Checklist Imprimível:</strong> Ficha de autoavaliação para projetos futuros.</li>
+            </ol>
+            <p><small>*Também disponível em formato alternativo: Roteiro completo para gravação de Podcast em dupla no Audacity com publicação no YouTube.</small></p>
+          </div>
+        </div>
+
+        <a class="proximo" href="#midia-alternativa">Próximo passo: <strong>Mídia Alternativa</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Passo 5: Mídia Alternativa (2ª VA - Item 2) ===== -->
+    <section id="midia-alternativa" class="secao" aria-labelledby="titulo-midia">
+      <div class="container">
+        <p class="passo">Passo 5 de 6</p>
+        <span class="badge-va badge-va--2">2ª VA · Item 2 Obrigatório</span>
+        <h2 id="titulo-midia">Mídia Alternativa: Infográfico Interativo</h2>
+        <p class="intro">Para o Item 2, foi desenvolvida uma mídia alternativa interativa (diferente de vídeo e de avaliação): um <strong>Infográfico Interativo no Genially</strong> que demonstra a complementaridade dos 4 formatos no ensino de Computação.</p>
+
+        <div class="grade grade--2">
+          <div class="cartao cartao--secundaria cartao--link">
+            <div>
+              <h3>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17v-4M12 17V7M16 17v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Matriz Visual: Pilhas e Filas
+              </h3>
+              <p>Explore como cada mídia aborda o mesmo conceito de estrutura de dados linear:</p>
+              <ul class="lista-check">
+                <li><strong>Texto:</strong> Definição conceitual, complexidade $O(1)$ e contratos de métodos.</li>
+                <li><strong>Imagem:</strong> Mapa espacial de nós e ponteiros encadeados.</li>
+                <li><strong>Áudio:</strong> Metáfora auditiva (pilha de pratos vs. fila de cinema).</li>
+                <li><strong>Vídeo/Animação:</strong> Movimento temporal de <code>push()</code>/<code>pop()</code> e <code>enqueue()</code>/<code>dequeue()</code>.</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;">
+              <a class="botao botao--secundario botao--grande" href="infografico.html" target="_blank">
+                Abrir Infográfico Interativo
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="sr">(abre em nova aba)</span>
+              </a>
+              <a class="botao" href="https://view.genially.com/6ae6a55f860bb75dfd5ea5e1" target="_blank" rel="noopener">
+                Ver no Genially
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="cartao">
+            <h3>Por que esta Mídia Alternativa?</h3>
+            <p>O infográfico interativo atende rigorosamente aos critérios da 2ª VA:</p>
+            <ul class="lista-check">
+              <li><strong>Não é vídeo nem quiz:</strong> Permite exploração não-linear guiada pelo usuário.</li>
+              <li><strong>Complementaridade real:</strong> Sintetiza os aprendizados teóricos do vídeo da 1ª VA e as instruções detalhadas do E-book da 2ª VA.</li>
+              <li><strong>Alto engajamento:</strong> Elementos visuais clicáveis estimulam a descoberta ativa.</li>
+            </ul>
+          </div>
+        </div>
+
+        <a class="proximo" href="#avaliacao">Próximo passo: <strong>Avaliação Interativa</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Passo 6: Avaliação Interativa (1ª VA) ===== -->
+    <section id="avaliacao" class="secao secao--alt" aria-labelledby="titulo-avaliacao">
+      <div class="container">
+        <p class="passo">Passo 6 de 6</p>
+        <span class="badge-va badge-va--1">Material da 1ª VA</span>
+        <h2 id="titulo-avaliacao">Avaliação Interativa Formativa</h2>
+
+        <div class="cartao-avaliacao">
+          <div>
+            <p class="cartao-avaliacao__texto">Teste sua compreensão com <strong>10 questões interativas com feedback imediato</strong>. Realize após assistir ao vídeo e explorar o e-book e o infográfico.</p>
+            <ul class="lista-check">
+              <li>Sem limite de tempo e com tentativas ilimitadas.</li>
+              <li>Justificativa pedagógica em cada resposta certa ou errada.</li>
+              <li>Abre em uma nova aba com total segurança.</li>
+            </ul>
+          </div>
+          <a class="botao botao--grande" href="https://view.genially.com/6ac2b54679a0b062bb140298" target="_blank" rel="noopener">
+            Fazer a Avaliação
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr">(abre em nova aba)</span>
+          </a>
+        </div>
+
+        <a class="proximo" href="#revisao">Aprofundamento: <strong>Matriz de Revisão & Prompts</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Ferramenta Prática: Revisão & Prompts de IA ===== -->
+    <section id="revisao" class="secao" aria-labelledby="titulo-revisao">
+      <div class="container">
+        <h2 id="titulo-revisao">Como Revisar a Clareza e Coerência dos Materiais</h2>
+        <p class="intro">Antes de disponibilizar seus recursos aos alunos, utilize o <strong>Protocolo 4C</strong> para garantir que os formatos convergem harmonicamente para o objetivo de aprendizagem.</p>
+
+        <div class="tabela-container">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Dimensão</th>
+                <th>Pergunta-Chave de Auditoria</th>
+                <th>Sinal de Alerta (O que eliminar)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Clareza</strong></td>
+                <td>O texto e os gráficos são imediatamente compreensíveis sem ambiguidade?</td>
+                <td>Jargões não definidos, contraste insuficiente ou fontes ilegíveis.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Coerência</strong></td>
+                <td>Todo elemento na tela e no áudio é estritamente essencial para o conceito?</td>
+                <td>Músicas de fundo intrusivas ou ilustrações puramente "decorativas" que distraem.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Carga Cognitiva</strong></td>
+                <td>A explicação está dividida equilibradamente entre olhos e ouvidos?</td>
+                <td>Locução lendo palavra por palavra um slide repleto de texto longo.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Complementaridade</strong></td>
+                <td>Cada formato agrega um valor exclusivo que os outros sozinhos não têm?</td>
+                <td>Imagens que repetem o texto sem acrescentar relação espacial ou dinâmica temporal.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Prompt de IA para Auditoria de Conteúdo</h3>
+        <p class="intro">Copie este prompt calibrado e cole no seu assistente de IA (ChatGPT, Claude ou Gemini) junto com o seu roteiro para obter uma auditoria de clareza e coerência pedagógica.</p>
+
+        <div class="prompt">
+          <pre id="prompt-revisao" tabindex="0" aria-label="Prompt modelo para auditoria multimídia">Atue como um Designer Instrucional sênior especialista na Teoria Cognitiva da Aprendizagem Multimídia de Richard Mayer.
+Estou desenvolvendo uma aula sobre [CONCEITO DE COMPUTAÇÃO, ex: Pilhas e Filas] para o público [PÚBLICO-ALVO, ex: estudantes de primeiro ano de Computação].
+Analise o esboço do meu material abaixo e aponte:
+1. Violações de coerência (elementos supérfluos que causam distração).
+2. Violações de redundância (texto e áudio competindo desnecessariamente).
+3. Oportunidades de complementaridade: como dividir melhor o conceito entre texto, imagem, áudio e interação.
+4. Sugestões práticas para edição no Canva (layout visual) e Audacity (ritmo sonoro).
+
+Meu Esboço:
+[COLE AQUI SEU TEXTO OU ROTEIRO]</pre>
+          <div class="prompt__acoes">
+            <button type="button" class="botao-copiar" data-alvo="prompt-revisao">
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              Copiar Prompt de Revisão
+            </button>
+            <span class="aviso-copia" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <a class="proximo" href="#referencias">Finalizar: <strong>Referências Bibliográficas</strong> <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===== Referências Bibliográficas (ABNT) ===== -->
+    <section id="referencias" class="secao secao--alt" aria-labelledby="titulo-referencias">
+      <div class="container">
+        <h2 id="titulo-referencias">Referências Bibliográficas</h2>
+        <ul class="refs">
+          <li>BLOOM, B. S. <em>Taxonomia de objetivos educacionais</em>: domínio cognitivo. Porto Alegre: Globo, 1972.</li>
+          <li>CLARK, R. C.; MAYER, R. E. <em>E-learning and the science of instruction</em>: proven guidelines for consumers and designers of multimedia learning. 4. ed. Hoboken: Wiley, 2016.</li>
+          <li>FILATRO, A. <em>Design instrucional na prática</em>. São Paulo: Pearson Education do Brasil, 2008.</li>
+          <li>MAYER, R. E. <em>Multimedia learning</em>. 3. ed. Cambridge: Cambridge University Press, 2020.</li>
+          <li>PAIVIO, A. <em>Mental representations</em>: a dual coding approach. Oxford: Oxford University Press, 1986.</li>
+          <li>SWELLER, J. Cognitive load during problem solving: effects on learning. <em>Cognitive Science</em>, v. 12, n. 2, p. 257-285, 1988.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Rodapé Institucional ===== -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <p>Projeto Integrador 1ª e 2ª VA · UFRPE · Licenciatura em Computação · 2026</p>
+      <a href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
