@@ -208,23 +208,10 @@
 
         <!-- Player de Vídeo com Carregador Dinâmico -->
         <div class="video-player-container">
-          <div class="video-wrapper">
-            <iframe
-              id="video-player-frame"
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
-              title="Vídeo-aula sobre Design Multimídia em Computação"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-          <!-- Área para o aluno colar e carregar o link do seu próprio vídeo do YouTube -->
-          <div class="video-custom-config">
-            <div class="video-config-label">
-              <strong>🔗 Personalizar Vídeo da 1ª VA:</strong> Cole o link do seu vídeo do YouTube abaixo:
-            </div>
-            <div class="video-input-box">
-              <input type="text" id="input-video-url" placeholder="https://youtu.be/SEU_VIDEO_ID" aria-label="URL do vídeo do YouTube">
-              <button type="button" id="btn-atualizar-video">Carregar Vídeo</button>
-            </div>
+          <div class="video-placeholder">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+            <p style="margin: 12px 0 4px; font-weight: 700; font-size: 1.15rem;">Vídeo-aula da 1ª VA</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Espaço reservado para o vídeo</p>
           </div>
         </div>
 
@@ -247,10 +234,10 @@
       </div>
     </section>
 
-    <!-- ===== PASSO 3: E-BOOK INTERATIVO (2ª VA - ITEM 1) ===== -->
+    <!-- ===== PASSO 3: E-BOOK INTERATIVO ===== -->
     <section id="ebook" class="secao-bloco" aria-labelledby="titulo-passo-3">
       <div class="container">
-        <span class="secao-tag">Passo 03 · 2ª VA · Item 1 Obrigatório</span>
+        <span class="secao-tag">Passo 03 · E-book Interativo</span>
         <h2 class="secao-titulo" id="titulo-passo-3">E-book Interativo: A Arte da Multimodalidade em Computação</h2>
         <p class="secao-subtitulo">
           Livro digital interativo contendo capa, sumário navegável, estudo de caso completo com Pilhas e Filas, tutoriais de Canva/Audacity/IA e o protocolo de revisão.
@@ -259,7 +246,6 @@
         <div class="grid-2">
           <div class="card-omni card-omni--destaque">
             <div>
-              <span class="tag-pill tag-pill--azul" style="margin-bottom: 12px;">Item 1 Concluído</span>
               <h3 style="font-size: 1.4rem; margin-bottom: 14px;">O Que Contém o E-book?</h3>
               <ul style="padding-left: 20px; color: var(--text-secondary); display: grid; gap: 10px; font-size: 0.95rem;">
                 <li><strong>Capítulo 1:</strong> Fundamentos da TCAM (Mayer) e a teoria da Dupla Codificação.</li>
@@ -303,10 +289,10 @@
       </div>
     </section>
 
-    <!-- ===== PASSO 4: MÍDIA ALTERNATIVA (2ª VA - ITEM 2) ===== -->
+    <!-- ===== PASSO 4: MÍDIA ALTERNATIVA ===== -->
     <section id="midia-alternativa" class="secao-bloco" aria-labelledby="titulo-passo-4">
       <div class="container">
-        <span class="secao-tag">Passo 04 · 2ª VA · Item 2 Obrigatório</span>
+        <span class="secao-tag">Passo 04 · Mídia Alternativa</span>
         <h2 class="secao-titulo" id="titulo-passo-4">Mídia Alternativa: Infográfico & Simulador Multimodal</h2>
         <p class="secao-subtitulo">
           Mídia interativa complementar desenvolvida exclusivamente para a 2ª VA (sem ser vídeo e sem ser avaliação): um simulador dinâmico de estruturas de dados lineares associado à matriz das 4 mídias.
@@ -315,7 +301,6 @@
         <div class="grid-2">
           <div class="card-omni card-omni--emerald">
             <div>
-              <span class="tag-pill" style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); color: #34d399; margin-bottom: 12px;">Item 2 Concluído</span>
               <h3 style="font-size: 1.4rem; margin-bottom: 14px;">Recursos da Mídia Alternativa</h3>
               <ul style="padding-left: 20px; color: var(--text-secondary); display: grid; gap: 10px; font-size: 0.95rem;">
                 <li><strong>Simulador Interativo:</strong> Alterne entre Pilha (Stack / LIFO) e Fila (Queue / FIFO). Insira (`push`/`enqueue`) e remova (`pop`/`dequeue`) nós de memória com física visual e ponteiros dinâmicos.</li>
@@ -336,7 +321,7 @@
             <div>
               <h3 style="font-size: 1.3rem; margin-bottom: 14px;">Por Que Esta Mídia Cumpre o Edital?</h3>
               <p style="color: var(--text-secondary); font-size: 0.95rem;">
-                O edital veta expressamente vídeos e avaliações no Item 2:
+                O edital veta expressamente vídeos e avaliações nesta mídia:
               </p>
               <div style="display: grid; gap: 12px; font-size: 0.9rem; margin-top: 14px;">
                 <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
