@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Multimídia em Computação: Texto, Imagem, Áudio e Vídeo</title>
+  <meta name="description" content="Minicurso EaD: Como combinar texto, imagem, áudio e vídeo de acordo com objetivos de aprendizagem para ensinar conceitos de Computação com Canva, Audacity e IA.">
+  <meta name="theme-color" content="#0ea5e9">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Atkinson Hyperlegible: Fonte desenvolvida para máxima legibilidade e acessibilidade -->
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular-navegacao" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <!-- ===== BARRA DE ACESSIBILIDADE E UTILIDADES ===== -->
+  <aside class="barra-utilidades" aria-label="Opções de acessibilidade">
+    <div class="container barra-utilidades__flex">
+      <div class="etiqueta-institucional">
+        <span></span>
+        <strong>Minicurso EaD · Projeto da 1ª e 2ª VA</strong>
+      </div>
+      <div class="utilidades-acoes">
+        <span style="color: var(--text-muted); font-size: 0.8rem; margin-right: 6px;">Tamanho do texto:</span>
+        <button type="button" class="btn-util" data-fonte-acao="diminuir" aria-label="Diminuir tamanho da fonte">A−</button>
+        <button type="button" class="btn-util" data-fonte-acao="padrao" aria-label="Tamanho de fonte padrão">A</button>
+        <button type="button" class="btn-util" data-fonte-acao="aumentar" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" class="btn-util" id="btn-contraste-global" aria-pressed="false">
+          🌓 Alto Contraste
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== CABEÇALHO E NAVEGAÇÃO PRINCIPAL ===== -->
+  <header class="nav-header">
+    <div class="container nav-header__flex">
+      <a class="logo-omni" href="#inicio">
+        <div class="logo-simbolo" aria-hidden="true">MC</div>
+        <div class="logo-texto">
+          OmniComp
+          <small>Multimídia em Computação</small>
+        </div>
+      </a>
+
+      <nav aria-label="Navegação da trilha de estudo">
+        <ul class="nav-links">
+          <li><a href="#objetivos">1. Objetivos</a></li>
+          <li><a href="#video">2. Vídeo (1ª VA)</a></li>
+          <li><a href="#ebook">3. E-book (2ª VA)</a></li>
+          <li><a href="#midia-alternativa">4. Infográfico (2ª VA)</a></li>
+          <li><a href="#avaliacao">5. Avaliação (1ª VA)</a></li>
+          <li><a href="#auditoria-4c">6. Auditoria 4C</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" tabindex="-1">
+
+    <!-- ===== SEÇÃO HERO / APRESENTAÇÃO DO TEMA ===== -->
+    <section id="inicio" class="hero-omni" aria-labelledby="titulo-hero">
+      <div class="container">
+        <div class="hero-badge-grupo">
+          <span class="tag-pill tag-pill--azul">Minicurso EaD Completo</span>
+          <span class="tag-pill tag-pill--roxo">Integração 1ª e 2ª VA</span>
+        </div>
+
+        <h1 id="titulo-hero">
+          Combinando <span class="gradiente">Texto, Imagem, Áudio e Vídeo</span> no Ensino de Computação
+        </h1>
+
+        <p class="hero-descricao">
+          Aprenda a orquestrar formatos complementares de acordo com objetivos pedagógicos explícitos, representar conceitos de Computação (como Estruturas de Dados) utilizando <strong>Canva, Audacity e IA</strong>, e aplicar um protocolo rigoroso para revisar a <strong>clareza e a coerência</strong> dos seus materiais.
+        </p>
+
+        <!-- Matriz Rápida dos 4 Formatos Complementares -->
+        <div class="matriz-quick-access" aria-label="Visão geral dos quatro formatos complementares">
+          <div class="formato-card">
+            <div class="formato-icone" aria-hidden="true">📝</div>
+            <div class="formato-info">
+              <h3>Texto</h3>
+              <p>Formalização lógica, contratos sintáticos e complexidade $O(1)$.</p>
+            </div>
+          </div>
+          <div class="formato-card">
+            <div class="formato-icone" aria-hidden="true">🖼️</div>
+            <div class="formato-info">
+              <h3>Imagem (Canva)</h3>
+              <p>Topologia espacial dos nós de memória e sinalização de ponteiros.</p>
+            </div>
+          </div>
+          <div class="formato-card">
+            <div class="formato-icone" aria-hidden="true">🎧</div>
+            <div class="formato-info">
+              <h3>Áudio (Audacity)</h3>
+              <p>Analogias mentais dialógicas e efeitos sutis de atenção (*cueing*).</p>
+            </div>
+          </div>
+          <div class="formato-card">
+            <div class="formato-icone" aria-hidden="true">🎬</div>
+            <div class="formato-info">
+              <h3>Vídeo / Animação</h3>
+              <p>Dinâmica temporal de transição de estados e execução contínua.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trilha de Aprendizagem Sequencial -->
+        <div class="trilha-container">
+          <div class="trilha-header">
+            <h2>Sua Trilha de Aprendizagem Sequencial</h2>
+            <p style="color: var(--text-secondary); margin: 0;">Siga as etapas ordenadas para dominar o design de materiais didáticos multimodais:</p>
+          </div>
+          <div class="trilha-passos">
+            <a href="#objetivos" class="passo-item">
+              <span class="passo-num">Passo 01</span>
+              <strong>Fundamentos & Objetivos</strong>
+              <small>Teoria de Mayer e Carga Cognitiva</small>
+            </a>
+            <a href="#video" class="passo-item">
+              <span class="passo-num">Passo 02</span>
+              <strong>Vídeo-aula da 1ª VA</strong>
+              <small>Conceitos e demonstração inicial</small>
+            </a>
+            <a href="#ebook" class="passo-item">
+              <span class="passo-num">Passo 03</span>
+              <strong>E-book Interativo (2ª VA)</strong>
+              <small>Canva, Audacity e IA em detalhes</small>
+            </a>
+            <a href="#midia-alternativa" class="passo-item">
+              <span class="passo-num">Passo 04</span>
+              <strong>Mídia Alternativa (2ª VA)</strong>
+              <small>Simulador dinâmico de Pilha vs. Fila</small>
+            </a>
+            <a href="#avaliacao" class="passo-item">
+              <span class="passo-num">Passo 05</span>
+              <strong>Avaliação Formativa (1ª VA)</strong>
+              <small>10 questões com feedback imediato</small>
+            </a>
+            <a href="#auditoria-4c" class="passo-item">
+              <span class="passo-num">Passo 06</span>
+              <strong>Auditoria de Coerência</strong>
+              <small>Checklist 4C e prompts de IA</small>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSO 1: OBJETIVOS E FUNDAMENTAÇÃO ===== -->
+    <section id="objetivos" class="secao-bloco" aria-labelledby="titulo-passo-1">
+      <div class="container">
+        <span class="secao-tag">Passo 01 · Fundamentação Pedagógica</span>
+        <h2 class="secao-titulo" id="titulo-passo-1">Alinhamento Pedagógico & Objetivos de Aprendizagem</h2>
+        <p class="secao-subtitulo">
+          A produção multimídia eficiente não começa na ferramenta gráfica, mas sim na definição clara de onde se quer chegar. Conheça as competências visadas:
+        </p>
+
+        <div class="grid-2">
+          <div class="card-omni card-omni--destaque">
+            <div>
+              <h3 style="font-size: 1.35rem; margin-bottom: 16px;">Objetivos Instrucionais (Taxonomia de Bloom)</h3>
+              <ul style="padding-left: 20px; display: grid; gap: 12px; color: var(--text-secondary);">
+                <li><strong>Compreender:</strong> Identificar como o cérebro processa estímulos visuais e auditivos de acordo com a Teoria da Aprendizagem Multimídia de Richard Mayer.</li>
+                <li><strong>Planejar:</strong> Distribuir um conteúdo de Computação (como Estruturas de Dados) entre os 4 formatos, evitando a sobrecarga cognitiva e a redundância.</li>
+                <li><strong>Produzir:</strong> Elaborar diagramas com contraste no Canva, gravar e tratar narrações com sinalização sonora no Audacity e criar roteiros com apoio de IA.</li>
+                <li><strong>Avaliar:</strong> Aplicar a Matriz 4C para auditar e expurgar ruídos, inconsistências e sobrecargas nos materiais didáticos.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-omni">
+            <div>
+              <h3 style="font-size: 1.35rem; margin-bottom: 16px;">Os 3 Pilares Cognitivos de Richard Mayer</h3>
+              <div style="display: grid; gap: 14px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px; border-left: 4px solid var(--brand-primary);">
+                  <strong>1. Dois Canais Independentes:</strong>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Informações auditivas/verbais e pictóricas/visuais trafegam por vias sensoriais distintas no cérebro.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px; border-left: 4px solid var(--accent-amber);">
+                  <strong>2. Capacidade de Memória Limitada:</strong>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">A memória de trabalho só consegue reter poucos elementos de cada vez em cada canal.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px; border-left: 4px solid var(--accent-emerald);">
+                  <strong>3. Processamento Ativo e Integrado:</strong>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">O aprendizado real ocorre ao conectar o modelo verbal com o modelo visual correspondente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSO 2: VÍDEO-AULA (1ª VA) ===== -->
+    <section id="video" class="secao-bloco" aria-labelledby="titulo-passo-2">
+      <div class="container">
+        <span class="secao-tag">Passo 02 · Material da 1ª VA</span>
+        <h2 class="secao-titulo" id="titulo-passo-2">Vídeo-aula: A Multimodalidade em Ação</h2>
+        <p class="secao-subtitulo">
+          Assista à vídeo-aula desenvolvida na 1ª VA sobre a combinação de texto, imagem, áudio e vídeo no ensino de Computação.
+        </p>
+
+        <!-- Player de Vídeo com Carregador Dinâmico -->
+        <div class="video-player-container">
+          <div class="video-wrapper">
+            <iframe
+              id="video-player-frame"
+              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+              title="Vídeo-aula sobre Design Multimídia em Computação"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <!-- Área para o aluno colar e carregar o link do seu próprio vídeo do YouTube -->
+          <div class="video-custom-config">
+            <div class="video-config-label">
+              <strong>🔗 Personalizar Vídeo da 1ª VA:</strong> Cole o link do seu vídeo do YouTube abaixo:
+            </div>
+            <div class="video-input-box">
+              <input type="text" id="input-video-url" placeholder="https://youtu.be/SEU_VIDEO_ID" aria-label="URL do vídeo do YouTube">
+              <button type="button" id="btn-atualizar-video">Carregar Vídeo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card-omni">
+            <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Destaques da Aula</h3>
+            <ul style="padding-left: 18px; color: var(--text-secondary); font-size: 0.95rem; display: grid; gap: 8px;">
+              <li>Por que slides abarrotados de texto causam sobrecarga cognitiva no aluno de programação.</li>
+              <li>A regra da não-redundância: fale a explicação enquanto a imagem mostra o estado de memória.</li>
+              <li>Demonstração de como sinalizar variáveis com cores no Canva e limpar ruídos no Audacity.</li>
+            </ul>
+          </div>
+          <div class="card-omni">
+            <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Momento de Reflexão</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              "Se você fechar os olhos e a explicação em vídeo continuar 100% compreensível, o visual foi inútil. Se você desligar o áudio e entender tudo pelo texto na tela, o áudio era ruído. O design ideal está na <strong>intersecção sinérgica</strong>."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSO 3: E-BOOK INTERATIVO (2ª VA - ITEM 1) ===== -->
+    <section id="ebook" class="secao-bloco" aria-labelledby="titulo-passo-3">
+      <div class="container">
+        <span class="secao-tag">Passo 03 · 2ª VA · Item 1 Obrigatório</span>
+        <h2 class="secao-titulo" id="titulo-passo-3">E-book Interativo: A Arte da Multimodalidade em Computação</h2>
+        <p class="secao-subtitulo">
+          Livro digital interativo contendo capa, sumário navegável, estudo de caso completo com Pilhas e Filas, tutoriais de Canva/Audacity/IA e o protocolo de revisão.
+        </p>
+
+        <div class="grid-2">
+          <div class="card-omni card-omni--destaque">
+            <div>
+              <span class="tag-pill tag-pill--azul" style="margin-bottom: 12px;">Item 1 Concluído</span>
+              <h3 style="font-size: 1.4rem; margin-bottom: 14px;">O Que Contém o E-book?</h3>
+              <ul style="padding-left: 20px; color: var(--text-secondary); display: grid; gap: 10px; font-size: 0.95rem;">
+                <li><strong>Capítulo 1:</strong> Fundamentos da TCAM (Mayer) e a teoria da Dupla Codificação.</li>
+                <li><strong>Capítulo 2:</strong> Decomposição prática: Pilhas (LIFO) e Filas (FIFO) divididas em Texto, Imagem, Áudio e Vídeo.</li>
+                <li><strong>Capítulo 3:</strong> Guia de ferramentas: Paletas acessíveis no Canva, redução de ruído e sinalização acústica no Audacity e prompts calibrados para IA.</li>
+                <li><strong>Capítulo 4:</strong> O Protocolo 4C de Auditoria (Clareza, Coerência, Carga e Complementaridade).</li>
+                <li><strong>Exportação Rápida:</strong> Botão de impressão com CSS A4 otimizado para gerar PDF e subir no <strong>FlipHTML5</strong> ou <strong>Genially</strong>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="ebook.html" target="_blank" class="btn-omni btn-omni--primary">
+                📖 Ler E-book Interativo
+              </a>
+              <a href="CONTEUDO_EBOOK.md" target="_blank" class="btn-omni btn-omni--secondary">
+                📄 Ver Texto Fonte (Markdown)
+              </a>
+            </div>
+          </div>
+
+          <div class="card-omni">
+            <div>
+              <h3 style="font-size: 1.3rem; margin-bottom: 14px;">Atendimento às Especificações da 2ª VA</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;">
+                O edital exige que o e-book não seja apenas um texto simples, mas sim um material atraente, interativo e com linguagem adequada ao público-alvo:
+              </p>
+              <div style="display: grid; gap: 12px; font-size: 0.9rem;">
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
+                  ✔ <strong>Capa e Sumário:</strong> Estruturados de forma moderna com links de salto rápido.
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
+                  ✔ <strong>Acessibilidade & Alto Contraste:</strong> Fonte Atkinson Hyperlegible e suporte a alto contraste.
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
+                  ✔ <strong>Publicação em FlipHTML5:</strong> O e-book possui um botão de "Salvar PDF" formatado especificamente para gerar o flipbook 3D na plataforma.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSO 4: MÍDIA ALTERNATIVA (2ª VA - ITEM 2) ===== -->
+    <section id="midia-alternativa" class="secao-bloco" aria-labelledby="titulo-passo-4">
+      <div class="container">
+        <span class="secao-tag">Passo 04 · 2ª VA · Item 2 Obrigatório</span>
+        <h2 class="secao-titulo" id="titulo-passo-4">Mídia Alternativa: Infográfico & Simulador Multimodal</h2>
+        <p class="secao-subtitulo">
+          Mídia interativa complementar desenvolvida exclusivamente para a 2ª VA (sem ser vídeo e sem ser avaliação): um simulador dinâmico de estruturas de dados lineares associado à matriz das 4 mídias.
+        </p>
+
+        <div class="grid-2">
+          <div class="card-omni card-omni--emerald">
+            <div>
+              <span class="tag-pill" style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); color: #34d399; margin-bottom: 12px;">Item 2 Concluído</span>
+              <h3 style="font-size: 1.4rem; margin-bottom: 14px;">Recursos da Mídia Alternativa</h3>
+              <ul style="padding-left: 20px; color: var(--text-secondary); display: grid; gap: 10px; font-size: 0.95rem;">
+                <li><strong>Simulador Interativo:</strong> Alterne entre Pilha (Stack / LIFO) e Fila (Queue / FIFO). Insira (`push`/`enqueue`) e remova (`pop`/`dequeue`) nós de memória com física visual e ponteiros dinâmicos.</li>
+                <li><strong>Síntese de Efeitos Sonoros (Audacity):</strong> Emite tons táteis (*pop* e *whoosh*) via Web Audio API, aplicando o princípio da sinalização auditiva.</li>
+                <li><strong>Locução Didática Integrada:</strong> Narração nativa por voz sintetizada com as analogias da pilha de pratos e da fila do bandejão.</li>
+                <li><strong>Laboratório 4C de Sobrecarga:</strong> Comparativo prático de como NÃO fazer e de como fazer certo segundo Mayer.</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 28px;">
+              <a href="infografico.html" target="_blank" class="btn-omni btn-omni--emerald">
+                🎮 Abrir Infográfico & Simulador Interativo
+              </a>
+            </div>
+          </div>
+
+          <div class="card-omni">
+            <div>
+              <h3 style="font-size: 1.3rem; margin-bottom: 14px;">Por Que Esta Mídia Cumpre o Edital?</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                O edital veta expressamente vídeos e avaliações no Item 2:
+              </p>
+              <div style="display: grid; gap: 12px; font-size: 0.9rem; margin-top: 14px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
+                  ✔ <strong>Não é vídeo:</strong> É uma aplicação exploratória manipulada no ritmo do estudante.
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
+                  ✔ <strong>Não é avaliação/teste:</strong> É uma ferramenta de descoberta visual e auditiva de conceitos.
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px;">
+                  ✔ <strong>Complementaridade real:</strong> Conecta a teoria vista no vídeo da 1ª VA e as instruções detalhadas do E-book da 2ª VA em uma vivência tátil.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSO 5: AVALIAÇÃO INTERATIVA DA 1ª VA ===== -->
+    <section id="avaliacao" class="secao-bloco" aria-labelledby="titulo-passo-5">
+      <div class="container">
+        <span class="secao-tag">Passo 05 · Material da 1ª VA</span>
+        <h2 class="secao-titulo" id="titulo-passo-5">Avaliação Interativa Formativa</h2>
+        <p class="secao-subtitulo">
+          Teste seus conhecimentos com <strong>10 questões interativas sobre o tema</strong> com feedback pedagógico e pontuação imediata:
+        </p>
+
+        <!-- Quiz Nativo 100% Integrado (Sem terceiros) -->
+        <div class="quiz-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span id="quiz-progresso-txt" style="font-size: 0.9rem; font-weight: 700; color: var(--brand-primary); text-transform: uppercase;">
+              Questão 1 de 10
+            </span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Feedback Formativo</span>
+          </div>
+
+          <h3 id="quiz-pergunta-txt" class="quiz-pergunta">Carregando pergunta...</h3>
+
+          <div id="quiz-opcoes-lista" class="quiz-opcoes"></div>
+
+          <div id="quiz-feedback-box" class="quiz-feedback" role="status" aria-live="polite"></div>
+
+          <div class="quiz-nav-btns">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Tentativas ilimitadas · Sem limite de tempo</span>
+            <button type="button" id="btn-quiz-proxima" class="btn-omni btn-omni--primary" style="display: none;">
+              Próxima Questão →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PASSO 6: AUDITORIA 4C & PROMPTS DE IA ===== -->
+    <section id="auditoria-4c" class="secao-bloco" aria-labelledby="titulo-passo-6">
+      <div class="container">
+        <span class="secao-tag">Passo 06 · Ferramenta de Prática</span>
+        <h2 class="secao-titulo" id="titulo-passo-6">Como Revisar a Clareza e Coerência dos Materiais</h2>
+        <p class="secao-subtitulo">
+          Utilize o <strong>Protocolo 4C</strong> para auditar qualquer material educacional antes de disponibilizá-lo aos estudantes:
+        </p>
+
+        <!-- Checklist Interativo 4C -->
+        <div class="card-omni" style="margin-bottom: 32px;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Checklist Interativo da Matriz 4C</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Marque os critérios que seu material atende para verificar o índice de qualidade:</p>
+
+          <div class="checklist-4c">
+            <label class="checklist-item">
+              <input type="checkbox">
+              <div class="checklist-texto">
+                <strong>1. Clareza Visual e Tipográfica:</strong>
+                <p>Fontes legíveis (ex: Atkinson Hyperlegible), tamanho mínimo de 16px e razão de contraste superior a 4,5:1 (WCAG AA).</p>
+              </div>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <div class="checklist-texto">
+                <strong>2. Coerência Acústica (Eliminação de Ruído):</strong>
+                <p>Nenhuma música de fundo agitada competindo com a fala; ruídos de ambiente eliminados no Audacity.</p>
+              </div>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <div class="checklist-texto">
+                <strong>3. Não-Redundância Estrita:</strong>
+                <p>O locutor não lê blocos longos de texto que já estão visíveis na tela; áudio e imagem cumprem papéis distintos.</p>
+              </div>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <div class="checklist-texto">
+                <strong>4. Contiguidade Espacial:</strong>
+                <p>Rótulos, comentários e ponteiros de código estão posicionados imediatamente ao lado do elemento a que se referem.</p>
+              </div>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <div class="checklist-texto">
+                <strong>5. Sinergia e Complementaridade:</strong>
+                <p>Cada formato (texto, imagem, áudio, animação) contribui com um ângulo único que os outros sozinhos não cobrem.</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="checklist-resultado">
+            <span>Diagnóstico do Material:</span>
+            <span id="placar-4c" style="color: var(--brand-primary);">0% de Conformidade</span>
+          </div>
+        </div>
+
+        <!-- Prompt Modelo para Assistentes de IA -->
+        <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Prompt de IA para Auditoria de Roteiros e Materiais</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Copie este prompt especializado e cole no ChatGPT, Claude ou Gemini junto com o seu rascunho de aula para receber uma revisão crítica:
+        </p>
+
+        <div class="box-prompt">
+          <pre id="prompt-copia" tabindex="0">Você é um Designer Instrucional sênior e especialista na Teoria Cognitiva da Aprendizagem Multimídia de Richard Mayer.
+Estou desenvolvendo um material didático para ensinar [INSIRA O CONCEITO DE COMPUTAÇÃO, ex: Pilhas e Filas] combinando texto, imagem, áudio e vídeo.
+Analise o rascunho do meu material abaixo com foco no Protocolo 4C:
+1. CLAREZA: Os termos computacionais foram introduzidos com precisão e linguagem acessível?
+2. COERÊNCIA: Há elementos irrelevantes, piadas ou decorações que causam sobrecarga cognitiva extrínseca?
+3. NÃO-REDUNDÂNCIA: O áudio e o texto estão competindo pelo canal verbal?
+4. COMPLEMENTARIDADE: Como posso aproveitar melhor o Canva (para esquemas espaciais) e o Audacity (para ritmo e ancoragem de atenção)?
+
+Meu Rascunho:
+[COLE SEU TEXTO OU ROTEIRO AQUI]</pre>
+          <div class="box-prompt-acoes">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Compatível com ChatGPT, Claude e Gemini</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="aviso-copia" style="font-size: 0.9rem; color: var(--accent-emerald); font-weight: 700;"></span>
+              <button type="button" class="btn-omni btn-omni--primary btn-copiar-prompt" data-alvo="prompt-copia" style="padding: 8px 16px; font-size: 0.9rem;">
+                📋 Copiar Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REFERÊNCIAS BIBLIOGRÁFICAS (ABNT) ===== -->
+    <section id="referencias" class="secao-bloco" aria-labelledby="titulo-referencias">
+      <div class="container">
+        <span class="secao-tag">Literatura Acadêmica</span>
+        <h2 class="secao-titulo" id="titulo-referencias">Referências Bibliográficas (Normas ABNT)</h2>
+        <ul style="padding-left: 20px; color: var(--text-secondary); display: grid; gap: 14px; font-size: 0.95rem;">
+          <li>BLOOM, Benjamin S. <em>Taxonomia de objetivos educacionais</em>: domínio cognitivo. Porto Alegre: Globo, 1972.</li>
+          <li>CLARK, Ruth Colvin; MAYER, Richard E. <em>E-learning and the science of instruction</em>: proven guidelines for consumers and designers of multimedia learning. 4. ed. Hoboken: Wiley, 2016.</li>
+          <li>FILATRO, Andrea. <em>Design instrucional na prática</em>. São Paulo: Pearson Education do Brasil, 2008.</li>
+          <li>MAYER, Richard E. <em>Multimedia learning</em>. 3. ed. Cambridge: Cambridge University Press, 2020.</li>
+          <li>PAIVIO, Allan. <em>Mental representations</em>: a dual coding approach. Oxford: Oxford University Press, 1986.</li>
+          <li>SWELLER, John. Cognitive load during problem solving: effects on learning. <em>Cognitive Science</em>, v. 12, n. 2, p. 257-285, 1988.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape-omni">
+    <div class="container rodape-grid">
+      <div>
+        <p><strong>OmniComp · Design Multimídia em Computação</strong></p>
+        <p><small>Minicurso EaD desenvolvido para a 1ª e 2ª VA · 2026</small></p>
+      </div>
+      <div>
+        <a href="#inicio" style="color: var(--brand-primary); text-decoration: none; font-weight: 700;">
+          Voltar ao Topo ↑
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
