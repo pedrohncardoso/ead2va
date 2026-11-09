@@ -1,508 +1,252 @@
-# ROTEIRO COMPLETO DE GRAVAÇÃO (VÍDEO-AULA DE ~30 MINUTOS)
+# ROTEIRO COMPLETO DE GRAVAÇÃO (VÍDEO-AULA EXPANDIDA DE ~20 A 25 MINUTOS)
 ## Design Multimídia em Computação: Texto, Imagem, Áudio e Vídeo com Intencionalidade Pedagógica
 
-*Este documento contém o design de cada slide (o que projetar na tela) e o roteiro literal de fala (o que você vai falar palavra por palavra), com cronometragem estimada, pausas interativas e instruções de gravação.*
+*Roteiro literal aprofundado, com explicações detalhadas, exemplos práticos de sala de aula e analogias completas para total fluidez e duração adequada.*
 
 ---
 
-## 📋 VISÃO GERAL DA GRAVAÇÃO
-* **Tempo Total Estimado:** ~28 a 32 minutos
-* **Ritmo:** Fluido, pausado, acolhedor e dialógico (aproximadamente 120 a 130 palavras por minuto)
-* **Estrutura:** 18 Slides organizados em 6 Módulos
-* **Software de Apresentação:** Você pode usar o arquivo interativo [`slides.html`](slides.html) em tela cheia (F11) ou copiar o layout dos slides para o Canva / PowerPoint.
-* **Dica de Gravação (OBS / Loom / Canva):** Posicione sua webcam no canto superior direito para não cobrir o conteúdo dos slides.
+### SLIDE 1 · Abertura e Apresentação do Minicurso
+**[FALA COMPLETA - ~1 min e 15 seg]:**
+> "Olá a todos e a todas! Sejam muito bem-vindos a esta vídeo-aula sobre **Design Multimídia em Computação: como combinar texto, imagem, áudio e vídeo de acordo com objetivos de aprendizagem**.
+> 
+> Meu nome é **Pedro Cardoso**, sou estudante de Licenciatura em Computação, e hoje nós vamos mergulhar em um dos desafios mais urgentes para quem leciona, produz videoaulas ou desenvolve materiais didáticos na nossa área.
+> 
+> Com frequência, nós nos deparamos com aulas de programação que parecem palestras enfadonhas: telas repletas de código-fonte ilegível, professores que passam meia hora apenas lendo slides e uma sensação generalizada de esgotamento mental por parte dos estudantes. Isso não ocorre porque a Computação é 'difícil demais' ou porque o aluno 'não tem vocação', mas sim porque aquele material pedagógico ignora por completo a forma como o cérebro humano processa informações visuais e auditivas.
+> 
+> Ao longo dos próximos 20 a 25 minutos, nós vamos explorar os fundamentos científicos da Teoria Cognitiva da Aprendizagem Multimídia, demonstrar na prática como representar um conceito central de programação — **Estruturas de Dados Lineares: Pilhas e Filas** — através de formatos complementares usando **Canva, Audacity e Assistentes de Inteligência Artificial**, e conhecer um método infalível para auditar a clareza e a coerência de tudo aquilo que você produz. Pegue o seu caderno de anotações e vamos juntos!"
 
 ---
 
-## MÓDULO 1: INTRODUÇÃO E O PROBLEMA DA SOBRECARGA (00:00 - 04:30)
-
-### SLIDE 1 (00:00 - 01:30) · ABERTURA
-```
-+--------------------------------------------------------------------------+
-|  OmniComp · Minicurso EaD                                                |
-|                                                                          |
-|       DESIGN MULTIMÍDIA EM COMPUTAÇÃO:                                   |
-|       TEXTO, IMAGEM, ÁUDIO E VÍDEO COM INTENCIONALIDADE PEDAGÓGICA       |
-|                                                                          |
-|  [ Ícones: 📝 Texto  |  🖼️ Imagem  |  🎧 Áudio  |  🎬 Vídeo ]           |
-|                                                                          |
-|  Apresentador: [Seu Nome]                                                |
-|  Licenciatura em Computação / Recursos Educacionais Multimídia           |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA (O QUE FALAR):
-> "Olá a todos e a todas! Sejam muito bem-vindos a esta vídeo-aula sobre **Design Multimídia em Computação**. Meu nome é **[Seu Nome]**, e hoje nós vamos mergulhar em um dos temas mais fundamentais para quem ensina ou produz conteúdo educacional na nossa área: **como combinar texto, imagem, áudio e vídeo de acordo com objetivos de aprendizagem explícitos**.
+### SLIDE 2 · O Problema Clássico: O Slide 'Testamento'
+**[FALA COMPLETA - ~1 min e 20 seg]:**
+> "Para começarmos a nossa reflexão, olhem atentamente para o diagnóstico que está na tela. Todo mundo aqui que já cursou uma disciplina de introdução à programação ou algoritmos já se deparou com o infame 'slide testamento'.
 > 
-> Se você já assistiu a uma aula de programação onde o professor projetou um slide com 40 linhas de código minúsculo e ficou lendo linha por linha em voz alta, você provavelmente sentiu sono, cansaço mental ou vontade de fechar o vídeo. Isso não acontece porque você é 'desatento', mas sim porque aquele material violou as leis fundamentais de como o cérebro humano processa informações.
+> Como ele funciona? O educador abre um slide em branco, copia e cola 50 linhas de um código em C, Java ou Python com fonte tamanho 12, coloca uma imagem decorativa qualquer no cantinho para 'enfeitar' e, quando a aula começa, ele passa cinco minutos lendo em voz alta exatamente cada linha, cada vírgula e cada ponto-e-vírgula que já estão projetados.
 > 
-> Nos próximos 30 minutos, nós vamos aprender a ciência por trás da aprendizagem multimídia, demonstrar na prática como representar um conceito clássico de Computação — **Estruturas de Dados: Pilhas e Filas** — em formatos complementares usando **Canva, Audacity e Assistentes de IA**, e aprender um protocolo infalível para auditar a clareza e a coerência dos seus materiais. Vamos começar?"
+> O que acontece dentro da cabeça do estudante nesse exato momento? A psicologia cognitiva chama isso de colapso por **sobrecarga cognitiva extrínseca**. A mente humana não possui capacidade ilimitada para processar leitura de texto escrito e fala oral concorrentes. O estudante tenta ler o código na linha 15, mas a voz do professor já está na linha 25; os olhos tentam decodificar a sintaxe enquanto os ouvidos tentam decifrar a pronúncia. O resultado é a cegueira de atenção, o estresse cognitivo e a total perda de engajamento.
+> 
+> A primeira lição que nós precisamos internalizar hoje é uma verdade quase contra-intuitiva: **mais mídia não significa mais aprendizado**. Encher um slide de palavras, efeitos e figuras não torna sua aula rica; torna sua aula barulhenta. No design educacional, a elegância do vazio e a precisão cirúrgica de cada elemento são virtudes fundamentais."
 
 ---
 
-### SLIDE 2 (01:30 - 03:00) · O PROBLEMA: O SLIDE "TESTAMENTO"
-```
-+--------------------------------------------------------------------------+
-|  O DIAGNÓSTICO DO ENSINO DE COMPUTAÇÃO                                   |
-|                                                                          |
-|   ❌ O Erro Clássico:                         🧠 O Que Acontece:         |
-|   • Slides com 50 linhas de código            • Sobrecarga do canal     |
-|   • Leitura oral idêntica ao texto              fonológico               |
-|   • Elementos visuais puramente decorativos   • Cegueira de atenção      |
-|   • Músicas de fundo agitadas                 • Fadiga cognitiva precoce |
-|                                                                          |
-|   "Mais mídia não significa mais aprendizado. Menos é mais."            |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Vamos começar olhando para o erro mais comum que cometemos ao ensinar Computação. Tradicionalmente, muitos educadores acreditam que, para fazer uma aula 'completa', basta colocar todo o conteúdo formal no slide: a definição teórica, o bloco de código inteiro em C ou Python, três imagens decorativas e, para piorar, colocar uma música de fundo ou falar ao mesmo tempo lendo exatamente o que está escrito.
+### SLIDE 3 · Metas de Aprendizagem da Aula (Taxonomia de Bloom)
+**[FALA COMPLETA - ~1 min e 10 seg]:**
+> "Para que nossa aula tenha rigor metodológico e não seja apenas um conjunto de opiniões soltas, nós estruturamos este encontro com base na **Taxonomia de Objetivos Educacionais de Benjamin Bloom**, transitando dos níveis fundamentais de compreensão até a avaliação crítica.
 > 
-> O resultado disso é desastroso. O aluno não sabe se olha para a variável, se lê a terceira linha do laço for, se escuta a voz do professor ou se tenta ignorar a música de fundo. 
+> Ao final deste vídeo, você terá desenvolvido cinco competências muito claras:
 > 
-> A cognição humana não é um funil onde você despeja gigabytes de informação e tudo é absorvido magicamente. Quando múltiplos canais disputam a atenção do estudante sem uma divisão clara de trabalho, ocorre o que a psicologia cognitiva chama de **sobrecarga cognitiva extrínseca**. O cérebro gasta tanta energia tentando filtrar o ruído visual e sonoro que não sobra capacidade para entender a lógica do algoritmo."
+> Primeiro, você será capaz de **identificar** a anatomia do modelo cognitivo de Richard Mayer e Allan Paivio, entendendo como o canal visual e o canal auditivo operam em paralelo.  
+> Segundo, você saberá **planejar** a partição intencional de qualquer conteúdo de Computação entre texto, imagem, áudio e vídeo, garantindo que nenhum formato repita o outro.  
+> Terceiro, você verá como **demonstrar** um conceito real da nossa área — no nosso caso, Pilhas e Filas — utilizando cada formato para destacar uma faceta exclusiva.  
+> Quarto, você aprenderá a **operar** ferramentas acessíveis do dia a dia: o Canva para contraste e hierarquia visual, o Audacity para tratamento e sinalização acústica, e modelos de IA generativa para co-autoria de roteiros.  
+> E quinto, você estará apto a **auditar** seus próprios materiais com a nossa Matriz 4C de clareza e coerência pedagógica."
 
 ---
 
-### SLIDE 3 (03:00 - 04:30) · OBJETIVOS DE APRENDIZAGEM (BLOOM)
-```
-+--------------------------------------------------------------------------+
-|  O QUE VOCÊ SERÁ CAPAZ DE FAZER AO FINAL DESTA AULA                      |
-|                                                                          |
-|  1. IDENTIFICAR os 2 canais cognitivos sensoriais (Mayer & Paivio).      |
-|  2. PLANEJAR a partição de um conceito em Texto, Imagem, Áudio e Vídeo.  |
-|  3. DEMONSTRAR o conceito de Pilhas e Filas em formatos não-redundantes. |
-|  4. OPERAR ferramentas práticas: Canva (visual), Audacity (áudio) e IA.  |
-|  5. AUDITAR a clareza e coerência com o Protocolo 4C.                    |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Para que a nossa aula tenha rigor pedagógico, nós estruturamos este encontro com base na **Taxonomia de Objetivos Educacionais de Benjamin Bloom**. Ao final destes 30 minutos, você será capaz de atingir cinco competências bem definidas:
+### SLIDE 4 · A Teoria de Richard Mayer (TCAM) e o Duplo Canal
+**[FALA COMPLETA - ~1 min e 25 seg]:**
+> "Vamos agora ao coração científico do nosso minicurso: a **Teoria Cognitiva da Aprendizagem Multimídia**, amplamente conhecida pela sigla TCAM, desenvolvida pelo psicólogo cognitivo Richard Mayer na Universidade da Califórnia, em conjunto com a Teoria da Dupla Codificação de Allan Paivio.
 > 
-> Primeiro: **identificar** os canais sensoriais do modelo cognitivo de Richard Mayer. Segundo: **planejar** a distribuição de qualquer conteúdo computacional entre os quatro formatos sem redundância. Terceiro: **demonstrar** um conceito real — hoje usaremos Pilhas e Filas — de modo que cada mídia cumpra um papel único. Quarto: **utilizar** ferramentas acessíveis do dia a dia, como Canva para contraste e diagramação, Audacity para áudio e sinalização acústica, e IA para refinamento de roteiros. E quinto: **auditar** seus próprios materiais com a nossa Matriz 4C de clareza e coerência.
+> Observem o esquema mental que está projetado na tela. Mayer estabeleceu três pilares biológicos sobre a nossa mente:
 > 
-> Com esses objetivos em mente, vamos para o nosso Módulo 2 entender a ciência da aprendizagem multimídia."
+> O primeiro pilar é a hipótese dos **Dois Canais Independentes**. Nós possuímos dois canais sensoriais separados para absorver a realidade: o canal auditivo ou verbal, que recebe palavras faladas, entonações e efeitos acústicos através dos ouvidos; e o canal visual ou pictórico, que recebe imagens, diagramas, animações e o layout visual através dos olhos.
+> 
+> O segundo pilar é a **Capacidade Limitada**. E aqui reside o grande segredo: a nossa memória de trabalho só consegue processar uma quantidade minúscula de estímulos simultâneos — em média, de três a quatro blocos de informação por vez em cada canal!
+> 
+> E o terceiro pilar é o **Processamento Ativo**. Nós não aprendemos gravando passivamente tudo o que nos é dito. Nós só aprendemos quando nosso cérebro seleciona ativamente as palavras e imagens relevantes, organiza essas informações em um modelo mental consistente e, finalmente, integra esse novo esquema à nossa bagagem prévia na memória de longo prazo. A aprendizagem multimídia eficiente é exatamente a arte de alimentar os dois canais sem sobrecarregar nenhum deles."
 
 ---
 
-## MÓDULO 2: A CIÊNCIA DA APRENDIZAGEM MULTIMÍDIA (04:30 - 10:30)
-
-### SLIDE 4 (04:30 - 06:30) · A TEORIA DE RICHARD MAYER (TCAM)
-```
-+--------------------------------------------------------------------------+
-|  A TEORIA COGNITIVA DA APRENDIZAGEM MULTIMÍDIA (TCAM)                    |
-|                                                                          |
-|     Mundo Externo         Memória Sensorial         Memória de Trabalho   |
-|   +---------------+     +--------------------+    +--------------------+ |
-|   | Palavras Faladas| -> | Ouvidos (Auditivo) | -> | Modelo Verbal      | |
-|   +---------------+     +--------------------+    +--------------------+ |
-|                                                             ↕ Integração |
-|   +---------------+     +--------------------+    +--------------------+ |
-|   | Imagens / Vídeo| -> | Olhos (Visual)     | -> | Modelo Pictórico   | |
-|   +---------------+     +--------------------+    +--------------------+ |
-|                                                                          |
-|   Premissas: 1. Duplo Canal  |  2. Capacidade Limitada  |  3. Proc. Ativo|
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "O alicerce científico de tudo o que vamos fazer hoje é a **Teoria Cognitiva da Aprendizagem Multimídia**, desenvolvida pelo professor Richard Mayer, da Universidade da Califórnia, combinada com a **Teoria da Dupla Codificação** de Allan Paivio.
+### SLIDE 5 · As 3 Cargas Cognitivas de John Sweller
+**[FALA COMPLETA - ~1 min e 20 seg]:**
+> "Para complementar as descobertas de Mayer, nós recorremos à **Teoria da Carga Cognitiva**, proposta pelo pesquisador australiano John Sweller. Sweller nos ensina que a memória de trabalho do nosso estudante lida constantemente com três tipos distintos de carga mental:
 > 
-> Mayer descobriu que a nossa mente opera com base em três premissas fundamentais:
+> A primeira é a **Carga Intrínseca**. É a dificuldade inerente ao próprio objeto de estudo. Aprender recursão, ponteiros de memória em linguagem C ou árvores binárias de busca é conceitualmente abstrato e complexo. Nós não temos como apagar essa complexidade, mas nós podemos gerenciá-la, dividindo a explicação em pequenos blocos graduais.
 > 
-> A primeira premissa é o **Princípio do Duplo Canal**. Nós temos duas portas de entrada sensoriais independentes: o canal auditivo/verbal, que processa sons, locuções e palavras faladas; e o canal visual/pictórico, que processa imagens, diagramas, animações e o código que vemos na tela.
+> A segunda é a **Carga Extrínseca**. Guardem bem essa palavra, porque ela é o grande inimigo do professor! A carga extrínseca é todo o esforço mental inútil que o aluno precisa despender por causa de um material mal projetado: é o contraste fraco que força a vista, é a fonte desenhada que ninguém consegue ler, é a legenda do código que fica numa página distante forçando o aluno a ir e voltar. A carga extrínseca rouba a energia do cérebro e não produz nenhum aprendizado.
 > 
-> A segunda premissa é a **Capacidade Limitada**. Diferente de um HD de computador, a nossa memória de trabalho só consegue processar uma quantidade minúscula de dados de cada vez — cerca de 4 a 5 unidades de informação simultâneas por canal!
+> E a terceira é a **Carga Pertinente**, também chamada de carga germane. Essa é a energia nobre! É o cérebro do estudante ativamente construindo analogias, relacionando a lógica do programa e compreendendo a solução.
 > 
-> E a terceira premissa é o **Processamento Ativo**. Nós não aprendemos passivamente como uma esponja. A aprendizagem só acontece quando o cérebro do estudante *seleciona* as informações mais relevantes, *organiza* mentalmente essas informações em modelos coerentes e, finalmente, *integra* o que ouviu com o que viu, conectando com o conhecimento prévio que ele já possui na memória de longo prazo."
+> O nosso objetivo maior como educadores e designers instrucionais é simples e direto: **zerar a carga extrínseca para liberar 100% da atenção do estudante para a carga pertinente**."
 
 ---
 
-### SLIDE 5 (06:30 - 08:30) · A TEORIA DA CARGA COGNITIVA (SWELLER)
-```
-+--------------------------------------------------------------------------+
-|  AS TRÊS CARGAS COGNITIVAS DE JOHN SWELLER                               |
-|                                                                          |
-|   1. CARGA INTRÍNSECA (A complexidade natural do conceito de Computação)  |
-|      -> Não pode ser eliminada, mas deve ser segmentada em passos.       |
-|                                                                          |
-|   2. CARGA EXTRÍNSECA (O ruído mental desnecessário: design ruim)        |
-|      -> DEVE SER ELIMINADA! Cores sem contraste, excesso de texto.       |
-|                                                                          |
-|   3. CARGA PERTINENTE / GERMANE (O esforço dedicado a aprender)          |
-|      -> DEVE SER MAXIMIZADA! Construção de esquemas mentais.             |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Junto com Mayer, precisamos compreender a **Teoria da Carga Cognitiva**, proposta por John Sweller. Sweller nos ensina que, durante uma aula, a mente do aluno é submetida a três tipos de esforço:
+### SLIDE 6 · Os 2 Princípios Indispensáveis de Mayer
+**[FALA COMPLETA - ~1 min e 15 seg]:**
+> "Mayer realizou centenas de experimentos controlados em laboratório e catalogou doze princípios de design instrucional. Mas se você tiver que memorizar apenas dois para transformar as suas aulas de Computação a partir de hoje, memorize estes:
 > 
-> A primeira é a **Carga Intrínseca**. É a dificuldade inerente ao próprio assunto. Aprender como funciona um ponteiro de memória em C ou como uma pilha gerencia o Call Stack é naturalmente abstrato e desafiador. Nós não podemos fingir que o assunto é fácil, mas podemos gerenciá-lo segmentando a explicação em passos progressivos.
+> O primeiro é o **Princípio da Redundância**. O senso comum costuma pensar: 'Se eu escrever a regra no slide e ler a mesma regra em voz alta, o aluno vai fixar melhor'. Os experimentos de Mayer comprovaram cientificamente o exato oposto! Quando o texto escrito e a narração oral trazem exatamente as mesmas palavras, o canal verbal entra em curto-circuito. O cérebro precisa gastar energia sincronizando a leitura visual com a escuta. A diretriz de Mayer é clara: **apresente o diagrama gráfico na tela e conduza a explicação exclusivamente pela voz falada**.
 > 
-> A segunda é a **Carga Extrínseca**. E guardem bem este conceito: a carga extrínseca é o veneno do material didático. É todo esforço inútil que o aluno faz por culpa de um design ruim! Por exemplo: uma fonte ilegível, cores sem contraste, uma tabela distante da legenda onde ele precisa ficar rolando a página para cima e para baixo, ou uma música estridente. Todo segundo que o aluno gasta tentando decifrar o seu slide é um segundo perdido que ele não dedicou ao raciocínio lógico.
-> 
-> E a terceira é a **Carga Pertinente ou Germane**. É a energia mental nobre! É o esforço ativo do estudante criando analogias, comparando a Pilha com a Fila e assimilando a regra LIFO. O nosso dever como educadores multimídia é: **reduzir a zero a carga extrínseca para liberar 100% da mente do aluno para a carga pertinente**."
+> O segundo é o **Princípio da Coerência**. Se você tem uma imagem bonita, um meme engraçado, um efeito sonoro chamativo ou uma história longa, mas aquilo não tem relação direta com o objetivo da aula, elimine sumariamente. Tudo o que não ajuda a construir o conceito principal atua como um elemento distrator que consome a memória de trabalho. No design multimídia, a simplicidade é a sofisticação máxima."
 
 ---
 
-### SLIDE 6 (08:30 - 10:30) · OS PRINCÍPIOS DE OURO: REDUNDÂNCIA E COERÊNCIA
-```
-+--------------------------------------------------------------------------+
-|  OS DOIS PRINCÍPIOS ESSENCIAIS DE MAYER                                   |
-|                                                                          |
-|   🚫 PRINCÍPIO DA REDUNDÂNCIA:                                           |
-|   • Narrar em voz alta exatamente o texto que está escrito na tela       |
-|     SATURA o canal verbal e reduz a retenção.                            |
-|   • OTIMIZAÇÃO: Mostre o diagrama visual + Narre a explicação oral.      |
-|                                                                          |
-|   ✂️ PRINCÍPIO DA COERÊNCIA:                                             |
-|   • Elimine palavras, sons e imagens supérfluos.                         |
-|   • Se um elemento visual não ajuda diretamente a entender o conceito,   |
-|     ele não é 'bonitinho', ele é RUÍDO.                                  |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Dentre os doze princípios catalogados por Mayer, há dois que precisam estar tatuados na mente de todo professor de Computação:
+### SLIDE 7 · Estruturas de Dados Lineares: Pilha vs. Fila
+**[FALA COMPLETA - ~1 min e 25 seg]:**
+> "Com essa sólida fundamentação teórica em mente, vamos entrar no nosso laboratório prático. Como é que nós pegamos um conceito técnico e abstrato de Ciência da Computação e o ensinamos de maneira verdadeiramente multimodal?
 > 
-> O primeiro é o **Princípio da Redundância**. Muitas pessoas acham intuitivo pensar: 'Ah, se eu colocar o texto no slide e ler o texto em voz alta, o aluno vai absorver duas vezes mais!'. Errado! Comprovado cientificamente por dezenas de experimentos empíricos: ler o mesmo texto que está na tela causa o *efeito da redundância*. O processador fonológico da mente entra em conflito tentando ler os olhos e escutar os ouvidos ao mesmo tempo. A combinação mais poderosa do mundo é: **Diagrama gráfico limpo na tela + Voz do professor explicando a lógica**.
+> Nós escolhemos um dos tópicos mais clássicos e estruturantes de qualquer curso de graduação ou formação técnica: **Estruturas de Dados Lineares — a comparação entre Pilhas (Stacks) e Filas (Queues)**.
 > 
-> O segundo é o **Princípio da Coerência**. Se um meme, uma animaçãozinha giratória, um efeito de transição mirabolante ou um comentário paralelo não contribui diretamente com o objetivo de aprendizagem, corte sem dó. No design instrucional, o vazio e a respiração visual são virtudes pedagógicas. Menos elementos na tela geram mais clareza no pensamento."
+> De um lado, nós temos a **Pilha**, que opera sob a disciplina rigorosa do **LIFO** — *Last In, First Out*: o último elemento a entrar é obrigatoriamente o primeiro a sair. O acesso à estrutura é restrito a uma única extremidade denominada *Topo*. Suas operações clássicas são o `push()` para empilhar e o `pop()` para desempilhar, ambas executadas em tempo constante $O(1)$.
+> 
+> Do outro lado, nós temos a **Fila**, que obedece ao princípio universal da justiça temporal: o **FIFO** — *First In, First Out*: quem chega primeiro é atendido primeiro. Na fila, nós temos duas extremidades fisicamente distintas: inserimos pelo fim (`Tail` ou `enqueue`) e removemos pela frente (`Head` ou `dequeue`), também com custo assintótico de $O(1)$.
+> 
+> Agora, pensem comigo: qual é a tentação tradicional de um professor? Criar um slide com o texto das definições, o desenho das duas estruturas e um trecho de código gigante, tudo misturado na mesma tela. Mas nós não faremos isso! Nós vamos particionar esse conteúdo entre as quatro mídias para que cada uma cumpra um papel único."
 
 ---
 
-## MÓDULO 3: O CONCEITO DE COMPUTAÇÃO EM FORMATOS COMPLEMENTARES (10:30 - 17:30)
-
-### SLIDE 7 (10:30 - 12:00) · O ESTUDO DE CASO: PILHAS VS. FILAS
-```
-+--------------------------------------------------------------------------+
-|  ESTUDO DE CASO PRÁTICO: ESTRUTURAS DE DADOS LINEARES                    |
-|                                                                          |
-|          PILHA (STACK)                         FILA (QUEUE)              |
-|   • Regra LIFO (Last In, First Out)     • Regra FIFO (First In, FirstOut)|
-|   • Uma única extremidade: TOPO         • Duas extremidades: HEAD / TAIL |
-|   • Operações: push() e pop()           • Operações: enqueue() e dequeue()|
-|   • Complexidade: O(1)                  • Complexidade: O(1)             |
-|                                                                          |
-|   Como representar essas duas estruturas nos 4 formatos sem redundância?|
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Agora que temos a base teórica consolidada, vamos para a prática! Como aplicar isso ao ensino de Ciência da Computação?
+### SLIDE 8 · O Papel Exclusivo do Texto
+**[FALA COMPLETA - ~1 min e 15 seg]:**
+> "Vamos analisar o primeiro formato: o **TEXTO**. Qual é a função pedagógica exclusiva do texto em uma aula de Computação?
 > 
-> Escolhemos um dos tópicos mais clássicos e estruturantes de qualquer curso de graduação ou técnico: **Estruturas de Dados Lineares: Pilha versus Fila**.
+> O texto escrito nunca deve ser utilizado para narrar parágrafos longos em slides, porque ninguém consegue ler blocos de texto e ouvir o professor ao mesmo tempo. O texto é a mídia da **precisão formal e do contrato lógico**.
 > 
-> De um lado, temos a **Pilha**, regida pelo princípio **LIFO** — *Last In, First Out*: o último elemento a entrar é obrigatoriamente o primeiro a sair. Todas as operações de inserção (`push`) e remoção (`pop`) ocorrem em uma única porta de acesso chamada *Topo*.
-> 
-> Do outro lado, temos a **Fila**, regida pelo princípio **FIFO** — *First In, First Out*: o primeiro elemento que chega é o primeiro atendido. Temos duas extremidades distintas: inserimos pelo fim (`Tail` ou `enqueue`) e removemos pelo início (`Head` ou `dequeue`). Ambas com tempo de execução constante $O(1)$.
-> 
-> Agora vem a pergunta de ouro do nosso minicurso: **Como nós ensinamos isso dividindo as tarefas entre Texto, Imagem, Áudio e Vídeo de forma que nenhuma mídia seja redundante?** Vamos dissecar formato por formato."
+> É no texto que nós fixamos os termos invariantes: os acrônimos LIFO e FIFO, a sintaxe formal das funções, a tipagem de retorno e a notação assintótica Big-O, como $O(1)$ de tempo e memória. Quando um estudante está programando no laboratório e tem uma dúvida sobre a assinatura do método `push()`, ele não quer assistir a um vídeo de 15 minutos procurando o momento da fala; ele quer consultar um texto curto, exato e inequívoco. O texto garante a acurácia técnica da aula."
 
 ---
 
-### SLIDE 8 (12:00 - 13:30) · O PAPEL DO TEXTO: PRECISÃO E FORMALISMO
-```
-+--------------------------------------------------------------------------+
-|  FORMATO 1: O PAPEL EXCLUSIVO DO TEXTO                                   |
-|                                                                          |
-|   O Texto é insubstituível para:                                         |
-|   • Formalização lógica dos invariantes (LIFO / FIFO)                    |
-|   • Assinaturas de métodos e tipagem estrita                             |
-|   • Garantias de complexidade assintótica Big-O                          |
-|                                                                          |
-|   [Trecho de Código Enxuto]                                              |
-|   class Pilha:                                                           |
-|       def push(self, valor) -> None: ...  # O(1)                         |
-|       def pop(self) -> Valor: ...        # O(1)                         |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Comecemos pelo **TEXTO**. Para que serve o texto em uma aula de Computação?
+### SLIDE 9 · O Papel Exclusivo da Imagem (Canva)
+**[FALA COMPLETA - ~1 min e 25 seg]:**
+> "E onde entra a **IMAGEM**? A imagem faz com perfeição aquilo que o texto demoraria parágrafos inteiros para descrever: ela constrói **relações espaciais e a topologia da memória**.
 > 
-> O texto não deve ser usado para narrar parágrafos de conversa fiada. O texto é a mídia da **precisão cirúrgica**. Ele é insubstituível para estabelecer contratos formais: nomes de métodos, tipos de retorno, assinaturas de funções e garantias matemáticas como a notação Big-O.
+> Imaginem tentar explicar apenas por palavras que uma Pilha é um contêiner fechado nas laterais e no fundo, onde os elementos só podem ser acessados por cima. Exige um esforço tremendo de abstração! Mas quando você abre o Canva e desenha um tubo vertical transparente, coloca três blocos coloridos encaixados e aponta uma seta de realce em laranja para o bloco superior com a legenda 'Topo', o cérebro do estudante captura a anatomia do dado em fração de segundo.
 > 
-> Quando o aluno precisa consultar a sintaxe exata de um método `push()` ou lembrar que a regra da Fila é FIFO, ele não quer assistir a um vídeo de 10 minutos procurando o trecho; ele quer ler uma linha de texto concisa. O texto é estático, consultável e exato. Ele cuida do rigor lógico."
+> Observem a Fila ao lado: na Fila, nós alteramos a orientação espacial para a horizontal, desenhamos uma esteira com duas extremidades abertas e colocamos uma seta verde na saída chamada `Head` e uma seta ciano na entrada chamada `Tail`.
+> 
+> O aluno olha para a tela e enxerga imediatamente a diferença geométrica entre uma estrutura unidirecional e uma estrutura bidirecional. Esse é o poder exclusivo da imagem estática bem planejada."
 
 ---
 
-### SLIDE 9 (13:30 - 15:30) · O PAPEL DA IMAGEM: RELAÇÃO ESPACIAL NO CANVA
-```
-+--------------------------------------------------------------------------+
-|  FORMATO 2: O PAPEL EXCLUSIVO DA IMAGEM                                  |
-|                                                                          |
-|      PILHA (Tubo Vertical)                     FILA (Duto Horizontal)    |
-|       |               |                       |                        | |
-|       | [ Item C ]    | <- Topo (Laranja)     | [A] -> [B] -> [C]      | |
-|       | [ Item B ]    |                       |                        | |
-|       | [ Item A ]    |                 Saída (Head)       Entrada (Tail)|
-|       +---------------+                                                  |
-|                                                                          |
-|   A Imagem constrói: Topologia de memória e orientação espacial.         |
-|   Sinalização: Cor de destaque apenas no ponteiro ativo!                |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "E onde entra a **IMAGEM**? A imagem faz o que o texto é incapaz de fazer com rapidez: **construir relações espaciais e topologia de memória**.
+### SLIDE 10 · O Papel do Áudio e do Vídeo
+**[FALA COMPLETA - ~1 min e 25 seg]:**
+> "Agora vamos conectar os outros dois formatos: o **ÁUDIO** e o **VÍDEO**.
 > 
-> Tentar descrever com palavras que a Pilha tem uma única extremidade e que os elementos se sobrepõem exige um esforço enorme de imaginação do aluno. Mas quando você projeta no Canva um diagrama limpo com um recipiente vertical, desenha três blocos empilhados e coloca uma seta laranja vibrante apontando para o Topo, a mente do aluno captura instantaneamente a geometria do dado!
+> O áudio é a mídia que humaniza a explicação e constrói **modelos mentais através de analogias do cotidiano**. É na locução que você diz com entonação amigável: *'Imagine uma pilha de pratos limpos na pia da sua casa: você vai colocando prato sobre prato. Na hora de pegar um para almoçar, você nunca puxa o de baixo, você pega o último que acabou de ser colocado no topo'*. Para a fila, a analogia é imediata: *'Pense na fila do bandejão universitário ou do banco: se alguém tentar furar, gera revolta, porque a regra moral é clara: quem chegou primeiro tem prioridade'*.
 > 
-> Observem a Fila: na Fila, nós mudamos a orientação espacial para a horizontal, com duas aberturas opostas: a esquerda é a saída (`Head`) e a direita é a entrada (`Tail`). Em um único segundo visual, o aluno entendeu a diferença anatômica entre as duas estruturas. Esse é o papel exclusivo da imagem."
+> Além disso, no áudio nós utilizamos a **sinalização acústica** (*cueing*): um efeito sonoro discreto de 'pop' no instante exato da inserção ancora a atenção auditiva do aluno na mudança de estado.
+> 
+> E o **VÍDEO**, por fim, é a mídia do **TEMPO e da DINÂMICA CONTÍNUA**. O vídeo não deve ser apenas o professor falando; ele serve para mostrar a animação do elemento descendo pelo tubo, a seta do topo subindo uma posição e o alerta vermelho de erro quando a memória atinge o limite e dispara o famoso *Stack Overflow*.
+> 
+> Reparem na harmonia: o Texto formaliza o contrato, a Imagem mostra o espaço, o Áudio conduz a analogia e o Vídeo demonstra a passagem do tempo!"
 
 ---
 
-### SLIDE 10 (15:30 - 17:30) · O PAPEL DO ÁUDIO E DO VÍDEO
-```
-+--------------------------------------------------------------------------+
-|  FORMATOS 3 e 4: ÁUDIO E VÍDEO / ANIMAÇÃO                                |
-|                                                                          |
-|   🎧 O ÁUDIO (Audacity):                                                 |
-|   • Constrói modelos mentais através de analogias do cotidiano.          |
-|   • Dita o ritmo da aula com entonação empática e pausas reflexivas.     |
-|   • Sinalização acústica (cueing): efeito sonoro tátil na inserção.      |
-|                                                                          |
-|   🎬 O VÍDEO / ANIMAÇÃO:                                                 |
-|   • Demonstra a PASSAGEM DO TEMPO e a dinâmica contínua.                 |
-|   • O bloco entrando, o ponteiro subindo e o evento de Stack Overflow.  |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Agora vejamos o **ÁUDIO** e o **VÍDEO**.
+### SLIDE 11 · Mão na Massa 1: Design Visual no Canva
+**[FALA COMPLETA - ~1 min e 20 seg]:**
+> "Entramos agora no nosso Módulo 4: como nós produzimos esses materiais utilizando ferramentas gratuitas e amplamente disponíveis, a começar pelo **Canva**.
 > 
-> O áudio traz a humanidade e a analogia para a aula. É pela locução no microfone que você diz: *'Imagine uma pilha de pratos na sua cozinha: você vai empilhando um em cima do outro. Quando você vai lavar, qual prato você tira primeiro? O último que você colocou no topo!'*. Já para a fila: *'Pense na fila do bandejão universitário: quem chega primeiro é servido primeiro'*. 
+> O Canva é uma ferramenta extraordinária, mas é muito fácil se perder na infinidade de elementos decorativos e criar designs poluídos. Quando nós produzimos gráficos para o ensino de Computação, devemos seguir três regras de ouro:
 > 
-> Além disso, no áudio nós podemos aplicar o *cueing acústico* no Audacity: um clique suave ou um pop no momento exato em que o dado entra na estrutura funciona como um sinalizador mental de que houve uma mudança de estado.
+> Regra número um: **Acessibilidade de Contraste**. Segundo os critérios internacionais da WCAG nível AA, a relação de contraste entre o texto e o fundo deve ser de no mínimo 4,5 para 1. Evite a todo custo textos em cinza-claro sobre fundo branco ou textos em vermelho sobre fundo escuro. No nosso projeto, utilizamos um fundo ardósia escuro com tipografia em branco gelo e ciano, garantindo conforto visual prolongado.
 > 
-> E o **VÍDEO**, por fim, é a mídia do **TEMPO**. O vídeo não deve ser apenas uma pessoa parada falando. O vídeo serve para mostrar o bloco descendo, o ponteiro de memória se deslocando em tempo real e o que acontece quando a pilha atinge o limite máximo e dispara o temido erro de *Stack Overflow*.
+> Regra número dois: **Hierarquia Tipográfica**. Defina com clareza três níveis: títulos grandes em destaque, subtítulos de apoio e texto explicativo limpo. Dê preferência a fontes desenvolvidas especificamente para legibilidade, como a *Atkinson Hyperlegible*, que possui diferenciação nítida entre o número '1', a letra 'l' minúscula e a letra 'I' maiúscula — algo crucial para código de programação!
 > 
-> Vejam que harmonia perfeita: Texto formaliza, Imagem mapeia o espaço, Áudio conduz a reflexão e Vídeo demonstra a passagem do tempo!"
+> E regra número três: **Cor Semântica**. Nós não usamos cores para 'enfeitar' o slide; usamos para significar! O recipiente é neutro, os itens são azuis e apenas o ponteiro ativo recebe a cor laranja de destaque."
 
 ---
 
-## MÓDULO 4: MÃO NA MASSA COM AS FERRAMENTAS (17:30 - 24:00)
-
-### SLIDE 11 (17:30 - 19:30) · PRODUÇÃO NO CANVA: DESIGN E ACESSIBILIDADE
-```
-+--------------------------------------------------------------------------+
-|  FERRAMENTA 1: BOAS PRÁTICAS DE DESIGN NO CANVA                          |
-|                                                                          |
-|   1. REGRA DO CONTRASTE (WCAG AA):                                       |
-|      • Mínimo de 4,5:1 para texto normal sobre fundo.                    |
-|      • Teste com fundos escuros: #0a0f1d com texto #f8fafc.              |
-|                                                                          |
-|   2. HIERARQUIA TIPOGRÁFICA EM 3 NÍVEIS:                                 |
-|      • Título (28-32pt) | Subtítulo (18-20pt) | Corpo (14-16pt).         |
-|      • Fontes recomendadas: Atkinson Hyperlegible, Inter ou Roboto.      |
-|                                                                          |
-|   3. COR SEMÂNTICA:                                                      |
-|      • Use cores não para 'enfeitar', mas para significar!               |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Vamos agora para o nosso Módulo 4: como nós produzimos isso com ferramentas gratuitas e acessíveis. Começando pelo **Canva**.
+### SLIDE 12 · Mão na Massa 2: Engenharia de Áudio no Audacity
+**[FALA COMPLETA - ~1 min e 25 seg]:**
+> "A nossa segunda ferramenta de produção é o **Audacity**, um software livre, multiplataforma e extremamente leve para gravação e edição sonora.
 > 
-> O maior perigo ao usar o Canva é se encantar com os milhares de templates prontos e transformar seu slide em uma árvore de natal cheia de figurinhas. No design educacional para Computação, siga três regras de ferro:
+> Uma pesquisa clássica em educação a distância demonstra que os estudantes toleram um vídeo em resolução intermediária, mas abandonam imediatamente uma aula cujo áudio seja abafado, estourado ou cheio de chiados. Para garantir uma locução com qualidade profissional no Audacity, você só precisa dominar três passos simples:
 > 
-> Primeira: **Acessibilidade de Contraste**. Garanta que a razão de contraste entre a cor da fonte e o fundo seja de no mínimo 4,5 para 1, conforme as diretrizes internacionais da WCAG AA. Nunca use texto cinza claro em fundo branco ou texto vermelho escuro em fundo azul.
+> Passo 1: **Redução de Ruído**. Ao iniciar sua gravação, aperte o botão vermelho de gravar e fique de 5 a 10 segundos em silêncio absoluto. Esse trecho vai capturar o ruído residual do ar-condicionado, o eco da sala e a ventoinha do seu computador. Em seguida, selecione esse trecho, abra o menu `Efeitos -> Redução de Ruído` e clique em *Obter Perfil de Ruído*. Depois, selecione toda a sua fala e aplique o filtro. O ruído ambiente simplesmente desaparece!
 > 
-> Segunda: **Hierarquia Tipográfica**. Defina no máximo três tamanhos: um para o título da seção, um para subtítulos de apoio e outro para o corpo. Use tipografias limpas e sem serifa. Nós adoramos a *Atkinson Hyperlegible*, que foi criada especificamente para facilitar a leitura de pessoas com baixa visão.
+> Passo 2: **Normalização de Volume**. Vá em `Efeitos -> Volume e Compressão -> Normalizar` e ajuste o pico máximo para -1.0 dB. Isso garante que sua voz tenha um volume potente e constante, sem distorcer nem provocar desconforto nos fones de ouvido dos alunos.
 > 
-> E terceira: **Cor Semântica**. No nosso exemplo, toda a estrutura base é cinza azulada neutra, e apenas o ponteiro do Topo é laranja vibrante. A cor tem função pedagógica de sinalização, e não de adorno."
+> E Passo 3: **Sinalização Acústica Discreta**. Crie uma faixa secundária para inserir pequenos efeitos táteis de apenas 0,2 segundos (um clique suave ou um tom harmônico) nas transições conceituais críticas, ancorando a atenção auditiva."
 
 ---
 
-### SLIDE 12 (19:30 - 21:30) · PRODUÇÃO NO AUDACITY: LIMPEZA E CUEING
-```
-+--------------------------------------------------------------------------+
-|  FERRAMENTA 2: ENGENHARIA DE ÁUDIO NO AUDACITY                           |
-|                                                                          |
-|   PASSO 1: GRAVE 5 SEGUNDOS DE SILÊNCIO INICIAL                          |
-|   • Capture o ruído do ventilador e do ambiente.                         |
-|   • Efeitos -> Remoção de Ruído -> 'Obter Perfil de Ruído'.              |
-|                                                                          |
-|   PASSO 2: NORMALIZAÇÃO DE PICOS                                         |
-|   • Efeitos -> Volume -> 'Normalizar' em -1.0 dB.                        |
-|   • Evita distorções desagradáveis no fone de ouvido do aluno.          |
-|                                                                          |
-|   PASSO 3: INSERÇÃO DE PONTOS DE SINALIZAÇÃO (CUEING)                    |
-|   • Adicione efeitos táteis discretos (pop/whoosh) nas transições.       |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "A segunda ferramenta indispensável é o **Audacity**, um software livre e gratuito de edição de áudio. Uma aula com vídeo em resolução 4K mas com áudio chiado e abafado é insuportável de assistir; já uma aula com vídeo simples mas com voz cristalina é prazerosa e retém o aluno.
+### SLIDE 13 · Mão na Massa 3: Assistentes de IA como Críticos
+**[FALA COMPLETA - ~1 min e 15 seg]:**
+> "E como nós devemos utilizar os **Assistentes de Inteligência Artificial**, como o ChatGPT, o Claude ou o Gemini, na preparação das nossas aulas?
 > 
-> No Audacity, você só precisa de três passos simples:
+> O pior uso possível da IA na educação é utilizá-la como uma 'muleta' para terceirizar o pensamento: pedir para ela gerar a aula inteira, copiar o texto sem ler e projetar no slide. Isso gera conteúdos pasteurizados, descontextualizados e frequentemente imprecisos.
 > 
-> Primeiro: **Redução de Ruído**. Antes de começar a falar, aperte o REC e fique 5 segundos em silêncio absoluto gravando o ar da sua sala. Depois, selecione esse pedacinho de silêncio, vá no menu `Efeitos -> Redução de Ruído` e clique em *Obter Perfil de Ruído*. Em seguida, selecione a gravação inteira e aplique o filtro. O ruído constante de fundo do seu computador ou ventilador desaparece como mágica!
+> O uso virtuoso e profissional da IA é como um **parceiro crítico de co-autoria pedagógica**.
 > 
-> Segundo: **Normalização**. Vá em `Efeitos -> Volume e Compressão -> Normalizar` e ajuste o pico para -1.0 dB. Isso garante que seu áudio tenha volume profissional sem estourar e sem distorcer nos fones de ouvido.
+> Você pode abrir o seu assistente de IA e fornecer um prompt com papel bem calibrado:  
+> *'Atue como um estudante calouro de Ciência da Computação que nunca viu programação na vida. Leia o rascunho da minha aula sobre Pilhas e Filas abaixo e aponte: 1) Quais termos técnicos soam intimidadoramente complexos? 2) Onde a explicação ficou abstrata demais? 3) Sugira duas analogias do mundo real para ilustrar a diferença entre LIFO e FIFO sem recorrer a termos de informática'*.
 > 
-> E terceiro: **Sinalização Acústica**. Use uma segunda pista no Audacity para colocar efeitos sonoros curtos e sutis — como um clique leve quando um nó é inserido. Isso ancora o canal auditivo no momento crítico da demonstração."
+> A IA funciona como um espelho de clareza, permitindo que você identifique ambiguidades e pontos cegos antes de ligar a câmera para gravar."
 
 ---
 
-### SLIDE 13 (21:30 - 23:00) · ASSISTENTES DE IA COMO CO-AUTORES
-```
-+--------------------------------------------------------------------------+
-|  FERRAMENTA 3: ASSISTENTES DE IA (CHATGPT, CLAUDE, GEMINI)               |
-|                                                                          |
-|   ❌ Como NÃO usar a IA:                                                 |
-|   • Pedir para a IA gerar a aula inteira e ler sem pensar.               |
-|                                                                          |
-|   ✅ Como USAR a IA com Maestria Pedagógica:                            |
-|   • Gerador de analogias cotidianas para diferentes faixas etárias.      |
-|   • Testador de clareza: "Aponte 3 termos confusos nesta explicação".    |
-|   • Estimador de tempo: "Ajuste este parágrafo para 45 segundos de fala".|
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "E como entram os **Assistentes de Inteligência Artificial**, como ChatGPT, Claude ou Gemini?
+### SLIDE 14 · Mini-Desafio: Aplicando a Multimodalidade
+**[FALA COMPLETA - ~1 min e 15 seg]:**
+> "Chegamos ao nosso momento interativo! Eu quero propor um exercício rápido de síntese mental para consolidar o que discutimos até aqui.
 > 
-> A pior maneira de usar IA na educação é terceirizar o seu cérebro: pedir para a máquina escrever um texto qualquer, copiar sem ler e colar no slide. Isso gera aulas genéricas, sem alma e repletas de alucinações.
+> Imaginem que o seu próximo objetivo de aprendizagem é ensinar um conceito que costuma aterrorizar os estudantes iniciantes: o conceito de **Recursão** — uma função que invoca a si mesma até atingir uma condição de parada.
 > 
-> O uso virtuoso da IA é como um **parceiro crítico de co-autoria**. Você pode usar prompts como:
+> Se você tivesse que construir um recurso didático de alta eficácia segundo os princípios de Mayer, como você distribuiria essa explicação?
 > 
-> *'Aja como um estudante do primeiro semestre sem base prévia em programação. Leia este rascunho de aula sobre Pilhas e aponte três termos técnicos que parecem obscuros ou intimidadores'*.
+> Pensem por alguns instantes: o que ficaria a cargo do Texto? O que iria para a Imagem? E o que você explicaria no Áudio sem gerar redundância?
 > 
-> Ou ainda: *'Me dê duas analogias do mundo real além da pilha de pratos que expliquem o princípio LIFO para adolescentes'*.
-> 
-> A IA ajuda você a enxergar seus pontos cegos, calibrar o vocabulário e estimar o tempo de narração antes de você ligar o microfone."
+> A resposta ideal ilustra perfeitamente o nosso método:  
+> No **Texto**, você coloca apenas o código enxuto evidenciando o caso-base e a chamada recursiva com tipagem precisa.  
+> Na **Imagem**, você desenha a pilha de chamadas (*call stack*) empilhando os quadros de memória no Canva.  
+> E no **Áudio**, você traz a analogia das bonecas russas Matrioshka ou do labirinto de espelhos, explicando com calma a descida e o retorno da execução. Cada formato cumpre um papel único!"
 
 ---
 
-### SLIDE 14 (23:00 - 24:00) · MINI-DESAFIO COM PAUSA NO VÍDEO
-```
-+--------------------------------------------------------------------------+
-|  ⏸️ HORA DE PRATICAR: PAUSE O VÍDEO AGORA!                               |
-|                                                                          |
-|   DESAFIO RÁPIDO (2 MINUTOS):                                            |
-|   Pense no conceito de RECURSÃO (uma função chamando a si mesma).        |
-|                                                                          |
-|   Como você distribuiria a explicação entre:                             |
-|   • TEXTO: __________________________________________________            |
-|   • IMAGEM: _________________________________________________            |
-|   • ÁUDIO: __________________________________________________            |
-|                                                                          |
-|   Pause o vídeo, anote em um papel e dê play para conferir!              |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Chegamos ao nosso momento interativo! Eu quero convidar você agora a colocar a mão na massa.
+### SLIDE 15 · O Protocolo 4C de Auditoria Pedagógica
+**[FALA COMPLETA - ~1 min e 25 seg]:**
+> "Entramos no nosso Módulo 5, onde abordamos a etapa final e decisiva de qualquer produção: **como auditar e revisar a clareza e a coerência dos materiais educacionais antes de publicá-los**.
 > 
-> Olhe para o slide: imagine que seu objetivo de aprendizagem é ensinar **Recursão**.
+> Para sistematizar essa avaliação, nós formulamos o **Protocolo 4C**. Toda vez que você finalizar um slide, um vídeo, um e-book ou um infográfico, passe o seu recurso pelo filtro destas quatro dimensões:
 > 
-> **Pause este vídeo agora por dois minutos**. Pegue um papel e responda: o que você colocaria no texto? O que desenharia na imagem? E o que falaria no áudio sem cometer redundância?
+> A primeira dimensão é a **Clareza**. A linguagem está calibrada para o nível prévio da turma? Os jargões foram explicados antes de serem usados? A tipografia tem tamanho confortável para quem estuda pelo celular e o contraste foi aprovado?
 > 
-> Pause agora... estou esperando!
+> A segunda dimensão é a **Coerência**, inspirada diretamente no princípio de Mayer. Todos os elementos presentes na tela e no áudio são estritamente necessários para o aprendizado? Há memes, enfeites ou músicas que só servem para causar distração? Se houver, exclua.
 > 
-> *(Pausa teatral de 3 segundos no vídeo)*
+> A terceira dimensão é a **Carga Cognitiva**. A informação está bem distribuída entre olhos e ouvidos? O princípio da contiguidade espacial foi respeitado, posicionando as legendas coladas aos diagramas?
 > 
-> Pronto! Conseguiu anotar? Se você colocou no texto apenas o caso-base e a chamada recursiva, desenhou na imagem a pilha de chamadas empilhando os quadros de memória e usou o áudio para a analogia das bonecas russas Matrioshka, parabéns: você aplicou a multimodalidade com perfeição!"
+> E a quarta dimensão é a **Complementaridade**. As mídias formam um ecossistema sinérgico ou estão apenas competindo? Se o aluno desligar o som, o vídeo ainda precisa fazer sentido pelo diagrama; se ele fechar os olhos, a voz precisa construir uma linha de raciocínio completa. Essa é a verdadeira multimodalidade."
 
 ---
 
-## MÓDULO 5: COMO REVISAR CLAREZA E COERÊNCIA (24:00 - 28:00)
-
-### SLIDE 15 (24:00 - 25:30) · O PROTOCOLO 4C DE AUDITORIA
-```
-+--------------------------------------------------------------------------+
-|  O PROTOCOLO 4C DE AUDITORIA PEDAGÓGICA                                  |
-|                                                                          |
-|   1. CLAREZA (Linguagem & Tipografia)                                    |
-|      -> Fontes acessíveis, termos explicados, contraste aprovado.        |
-|                                                                          |
-|   2. COERÊNCIA (Mayer's Coherence)                                       |
-|      -> Eliminação de todo ruído sonoro, memes irrelevantes e enfeites.  |
-|                                                                          |
-|   3. CARGA COGNITIVA (Sweller's Load)                                    |
-|      -> Ritmo balanceado; sem divisão prejudicial da atenção do olhar.   |
-|                                                                          |
-|   4. COMPLEMENTARIDADE (Sinergia das Mídias)                             |
-|      -> Cada formato agrega um ângulo exclusivo; zero redundância!       |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Chegamos ao Módulo 5, onde respondemos à parte final do nosso tema: **como revisar a clareza e a coerência dos materiais antes de publicá-los**.
+### SLIDE 16 · Auditoria Prática: O Errado vs. O Certo
+**[FALA COMPLETA - ~1 min e 20 seg]:**
+> "Para que essa distinção fique absolutamente cristalina, observem a comparação direta na tela entre dois modelos pedagógicos.
 > 
-> Para isso, nós desenvolvemos o **Protocolo 4C**. Toda vez que você terminar de criar um slide, um e-book, um infográfico ou um vídeo, passe o material por esse filtro de quatro perguntas:
+> À esquerda, nós temos o material com sobrecarga cognitiva severa: o slide possui um fundo gradiente chamativo, um bloco de código estático de 30 linhas em fonte miúda colado como captura de tela borrada, o professor lendo cada comando palavra por palavra e uma trilha sonora de música eletrônica ao fundo. Esse é o modelo que gera evasão, ansiedade e desinteresse no estudante.
 > 
-> Primeiro C: **Clareza**. O vocabulário está adaptado ao nível do público? A tipografia tem tamanho legível mesmo em telas de celular? O contraste passa no teste da WCAG?
+> À direita, nós temos o material multimodal otimizado: um fundo escuro e sóbrio com contraste superior a 4,5:1, um diagrama vetorial limpo evidenciando a anatomia da pilha, uma seta colorida destacando o ponteiro ativo, o professor explicando com calma a analogia do cotidiano e um clique suave de 0,2 segundos marcando a entrada de cada novo elemento.
 > 
-> Segundo C: **Coerência**. Existe algum elemento na tela ou no áudio que esteja ali apenas por capricho estético? Se tiver, corte.
-> 
-> Terceiro C: **Carga Cognitiva**. O aluno precisa ler um texto enquanto a imagem está se movendo rapidamente? A informação gráfica e a legenda estão coladas uma na outra (Contiguidade Espacial)?
-> 
-> Quarto C: **Complementaridade**. Se você desligar o som do vídeo, ele perde sentido? Se não perder, o som era inútil. Se você fechar os olhos e a imagem não fizer falta, o visual era inútil. O material só está pronto quando as mídias formam uma engrenagem inseparável."
+> O conteúdo ensinado em ambos os casos é exatamente o mesmo: Pilhas e Filas! No entanto, no primeiro modelo o estudante se sente incapaz; no segundo modelo, a lógica computacional torna-se evidente, intuitiva e agradável."
 
 ---
 
-### SLIDE 16 (25:30 - 27:00) · COMPARAÇÃO PRÁTICA: RUIM VS. BOM
-```
-+--------------------------------------------------------------------------+
-|  AUDITORIA EM AÇÃO: ANTES E DEPOIS                                       |
-|                                                                          |
-|   ❌ MATERIAL COM SOBRECARGA (RUIM):                                     |
-|   • Fundo com degradê colorido poluído.                                  |
-|   • 30 linhas de código coladas em imagem borrada.                       |
-|   • Professor lendo o código palavra por palavra.                        |
-|   • Música eletrônica de fundo competindo com a voz.                     |
-|                                                                          |
-|   ✅ MATERIAL OTIMIZADO MULTIMODAL (BOM):                                |
-|   • Fundo escuro limpo (#0a0f1d) com alto contraste.                     |
-|   • Diagrama vetorial da pilha com seta sinalizadora no topo.            |
-|   • Voz pausada trazendo a analogia do cotidiano.                        |
-|   • Efeito sonoro discreto de 'pop' na inserção do elemento.             |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Vejam na tela o comparativo visual entre os dois mundos.
+### SLIDE 17 · Checklist Pré-Publicação
+**[FALA COMPLETA - ~1 min e 10 seg]:**
+> "Como ferramenta prática de apoio à sua rotina docente, nós condensamos o Protocolo 4C neste checklist pré-publicação de seis itens essenciais. Antes de enviar seu vídeo para o YouTube, exportar seu PDF ou publicar seu site, confira se todas as caixas estão marcadas:
 > 
-> À esquerda, temos o material que infelizmente ainda domina a internet: um slide abarrotado, fundo chamativo disputando contraste com as letras, 30 linhas de código minúsculo e uma trilha sonora que dá dor de cabeça depois de 5 minutos. Esse material cansa e afasta os alunos da Computação.
+> 1. O objetivo da aula foi formulado com um verbo claro da Taxonomia de Bloom?  
+> 2. As imagens e diagramas cumprem o papel de ilustrar relações espaciais e estados de memória?  
+> 3. O áudio foca na condução do raciocínio e em analogias, sem cometer o erro de ler blocos de texto repetidos?  
+> 4. A gravação foi tratada no Audacity, com eliminação de ruídos e volume normalizado em -1.0 dB?  
+> 5. As cores e a tipografia foram testadas quanto à acessibilidade de contraste no padrão WCAG AA?  
+> 6. O material foi auditado com o apoio de um assistente de IA para identificar possíveis pontos cegos?  
 > 
-> À direita, temos a aplicação direta de tudo o que estudamos hoje: um fundo sóbrio, a estrutura da Pilha ilustrada com clareza matemática, uma seta colorida sinalizando o Topo, a locução explicando a lógica sem ler código repetido, e um efeito sonoro de apenas 0,2 segundos marcando a transição. O aprendizado torna-se leve, fluido e duradouro."
+> Se todas as respostas forem 'sim', você tem a tranquilidade de que seu recurso pedagógico foi construído com excelência técnica e respeito à mente do aprendiz."
 
 ---
 
-### SLIDE 17 (27:00 - 28:00) · CHECKLIST PRÉ-PUBLICAÇÃO
-```
-+--------------------------------------------------------------------------+
-|  SEU CHECKLIST ANTES DE APERTAR O BOTÃO "PUBLICAR"                      |
-|                                                                          |
-|  [ ] O objetivo da aula tem verbo mensurável da Taxonomia de Bloom?     |
-|  [ ] O canal visual mostra relações espaciais e estados de memória?      |
-|  [ ] O canal auditivo explica o raciocínio sem repetir o texto na tela?  |
-|  [ ] O áudio foi limpo no Audacity (ruído removido e picos a -1.0 dB)?   |
-|  [ ] As cores e tipografias foram validadas no Canva para acessibilidade?|
-|  [ ] Um assistente de IA foi consultado para auditar pontos cegos?       |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Para garantir que você nunca esqueça nenhum desses passos, nós criamos este checklist pré-publicação. Antes de disponibilizar qualquer aula para seus alunos, marque mentalmente essas seis caixas. Se todas estiverem marcadas, você tem a garantia de que seu recurso pedagógico respeita a arquitetura cognitiva humana e promove uma aprendizagem significativa."
+### SLIDE 18 · Encerramento e Continuidade
+**[FALA COMPLETA - ~1 min e 20 seg]:**
+> "Chegamos ao final da nossa vídeo-aula sobre Design Multimídia em Computação!
+> 
+> Ao longo deste encontro, nós desmistificamos a ideia de que ensinar programação é apenas mostrar linhas de código. Nós aprendemos a ciência cognitiva de Richard Mayer e John Sweller, vimos como particionar o conceito de Pilhas e Filas de forma verdadeiramente complementar e conhecemos as melhores práticas no Canva, no Audacity e com assistentes de IA.
+> 
+> Mas o seu percurso de aprendizagem não se encerra aqui! Eu quero convidar você a acessar agora mesmo o nosso portal web oficial, onde você encontrará os materiais complementares que desenvolvemos para a 2ª VA:
+> 
+> * Leia o nosso **E-book Interativo**, estruturado em quatro capítulos detalhados, com a opção de salvar em PDF formatado para folheamento digital.
+> * Explore a nossa **Mídia Alternativa**, um simulador tátil em tempo real onde você pode empilhar e enfileirar elementos com animações físicas e efeitos acústicos de sinalização.
+> * E teste sua retenção na nossa **Avaliação Formativa de 10 questões**, com gabarito comentado e justificativa pedagógica imediata.
+> 
+> Muito obrigado pela atenção de todos e de todas, desejo a vocês excelentes criações didáticas e até a nossa próxima aula!"
 
 ---
-
-## MÓDULO 6: ENCERRAMENTO E CONTINUIDADE (28:00 - 30:00)
-
-### SLIDE 18 (28:00 - 30:00) · CONCLUSÃO & MATERIAIS DA 2ª VA
-```
-+--------------------------------------------------------------------------+
-|  MUITO OBRIGADO! CONTINUE SUA TRILHA DE ESTUDOS                          |
-|                                                                          |
-|   Materiais Práticos Disponíveis no Nosso Site:                          |
-|   📖 E-book Interativo: Aprofundamento dos 4 Capítulos com PDF           |
-|   🎮 Mídia Alternativa: Simulador Dinâmico de Pilha vs. Fila             |
-|   📝 Avaliação Interativa: 10 Questões Formativas com Feedback           |
-|                                                                          |
-|   Acesse todos os materiais no nosso portal web!                         |
-|   Dúvidas e Contato: [Seu E-mail / Perfil Acadêmico]                     |
-+--------------------------------------------------------------------------+
-```
-#### 🗣️ ROTEIRO DE FALA:
-> "Chegamos ao final da nossa vídeo-aula! 
-> 
-> Vimos hoje como transitar entre a teoria de Richard Mayer, o desenho visual acessível no Canva, a engenharia de áudio no Audacity e o uso inteligente de assistentes de IA para representar conceitos de Computação e auditar sua clareza e coerência.
-> 
-> Mas o seu aprendizado não termina aqui! Eu convido você a continuar a sua trilha de estudos diretamente no nosso site:
-> 
-> * Acesse o nosso **E-book Interativo** para ler no seu ritmo e salvar a versão em PDF.
-> * Explore a nossa **Mídia Alternativa**, que é um simulador interativo onde você pode testar ao vivo as operações de `push`, `pop`, `enqueue` e `dequeue` com efeitos sonoros táteis.
-> * E teste seus conhecimentos na nossa **Avaliação Formativa de 10 questões**, com feedback imediato em cada resposta!
-> 
-> Muito obrigado pela atenção de todos, bons estudos e até a nossa próxima aula!"
-
----
-*Fim do roteiro. Tempo total estimado: ~29 minutos e 30 segundos.*
+*Duração estimada total em fala compassada: entre 21 e 24 minutos.*
