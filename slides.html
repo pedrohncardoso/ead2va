@@ -258,9 +258,7 @@
   <!-- Barra de Controle Superior -->
   <header class="barra-apresentacao" role="banner">
     <div class="titulo-deck">
-      <span>OmniComp Slides</span>
-      <span class="badge-tempo">Vídeo ~30 min</span>
-      <span class="dica-teclado">(Use as setas ◀ ▶ do teclado para navegar)</span>
+      <span>OmniComp</span>
     </div>
 
     <div class="acoes-deck">
@@ -286,7 +284,6 @@
     var slides = [
       {
         categoria: "Módulo 1 · Introdução",
-        tempo: "00:00 - 01:30",
         titulo: "Design Multimídia em Computação",
         subtitulo: "Como Combinar Texto, Imagem, Áudio e Vídeo de Acordo com Objetivos de Aprendizagem",
         html: `
@@ -304,7 +301,6 @@
       },
       {
         categoria: "Módulo 1 · O Diagnóstico",
-        tempo: "01:30 - 03:00",
         titulo: "O Problema Clássico: O Slide 'Testamento'",
         subtitulo: "Por que slides abarrotados de código causam fadiga cognitiva e desatenção?",
         html: `
@@ -333,7 +329,6 @@
       },
       {
         categoria: "Módulo 1 · Objetivos",
-        tempo: "03:00 - 04:30",
         titulo: "Metas de Aprendizagem da Aula",
         subtitulo: "O que você será capaz de fazer com autonomia ao final destes 30 minutos (Taxonomia de Bloom):",
         html: `
@@ -351,7 +346,6 @@
       },
       {
         categoria: "Módulo 2 · Teoria Cognitiva",
-        tempo: "04:30 - 06:30",
         titulo: "A Teoria de Richard Mayer (TCAM)",
         subtitulo: "Como a mente humana processa palavras e imagens em canais separados:",
         html: `
@@ -375,7 +369,6 @@
       },
       {
         categoria: "Módulo 2 · Carga Cognitiva",
-        tempo: "06:30 - 08:30",
         titulo: "As 3 Cargas Cognitivas de John Sweller",
         subtitulo: "Gerenciando a energia mental finita do estudante de programação:",
         html: `
@@ -398,7 +391,6 @@
       },
       {
         categoria: "Módulo 2 · Princípios de Ouro",
-        tempo: "08:30 - 10:30",
         titulo: "Os 2 Princípios Indispensáveis de Mayer",
         subtitulo: "Regras que você nunca mais deve violar ao gravar uma aula:",
         html: `
@@ -419,7 +411,6 @@
       },
       {
         categoria: "Módulo 3 · O Caso Computacional",
-        tempo: "10:30 - 12:00",
         titulo: "Estruturas de Dados Lineares: Pilha vs. Fila",
         subtitulo: "Nosso estudo de caso prático para demonstrar a multimodalidade complementar:",
         html: `
@@ -448,7 +439,6 @@
       },
       {
         categoria: "Módulo 3 · Formato 1",
-        tempo: "12:00 - 13:30",
         titulo: "O Papel Exclusivo do TEXTO",
         subtitulo: "A mídia da precisão formal, sintaxe e contratos lógicos invariantes:",
         html: `
@@ -470,7 +460,6 @@
       },
       {
         categoria: "Módulo 3 · Formato 2",
-        tempo: "13:30 - 15:30",
         titulo: "O Papel Exclusivo da IMAGEM (Canva)",
         subtitulo: "Construindo a topologia de memória e relações espaciais instantâneas:",
         html: `
@@ -501,7 +490,6 @@
       },
       {
         categoria: "Módulo 3 · Formatos 3 e 4",
-        tempo: "15:30 - 17:30",
         titulo: "O Papel do ÁUDIO e do VÍDEO",
         subtitulo: "Analogias mentais dialógicas e a demonstração da passagem do tempo:",
         html: `
@@ -528,7 +516,6 @@
       },
       {
         categoria: "Módulo 4 · Prática com Canva",
-        tempo: "17:30 - 19:30",
         titulo: "Mão na Massa 1: Design Visual no Canva",
         subtitulo: "Diretrizes essenciais para gráficos didáticos acessíveis:",
         html: `
@@ -545,7 +532,6 @@
       },
       {
         categoria: "Módulo 4 · Prática com Audacity",
-        tempo: "19:30 - 21:30",
         titulo: "Mão na Massa 2: Engenharia de Áudio no Audacity",
         subtitulo: "3 passos simples para gravações com qualidade profissional:",
         html: `
@@ -568,7 +554,6 @@
       },
       {
         categoria: "Módulo 4 · Prática com IA",
-        tempo: "21:30 - 23:00",
         titulo: "Mão na Massa 3: Assistentes de IA como Críticos",
         subtitulo: "Como extrair co-autoria inteligente do ChatGPT, Claude ou Gemini:",
         html: `
@@ -587,8 +572,7 @@
       },
       {
         categoria: "Módulo 4 · Momento Interativo",
-        tempo: "23:00 - 24:00",
-        titulo: "⏸️ Mini-Desafio: Pause o Vídeo Agora!",
+        titulo: "Mini-Desafio: Aplicando a Multimodalidade",
         subtitulo: "Teste rápido de 2 minutos para consolidar seu aprendizado:",
         html: `
           <div class="box-slide" style="text-align: center; padding: 32px;">
@@ -601,14 +585,13 @@
               <span>🖼️ <strong>Imagem:</strong> Call Stack</span>
               <span>🎧 <strong>Áudio:</strong> Bonecas Matrioshka</span>
             </div>
-            <p style="margin-top: 24px; font-weight: 700; color: var(--cyan);">Pause o vídeo, anote em um papel e dê play para conferir!</p>
+            <p style="margin-top: 24px; font-weight: 700; color: var(--cyan);">Exercício prático de síntese conceitual.</p>
           </div>
         `,
         fala: "Chegou o nosso momento interativo! Pause o vídeo agora por dois minutos. Imagine que seu objetivo é ensinar Recursão. O que você colocaria no texto? O que desenharia na imagem? E o que falaria no áudio sem repetir texto? Pause agora... estou esperando! Pronto! Se você colocou no texto o caso-base, na imagem a pilha de chamadas e no áudio a analogia das bonecas russas, você aplicou a multimodalidade com perfeição!"
       },
       {
         categoria: "Módulo 5 · Revisão e Auditoria",
-        tempo: "24:00 - 25:30",
         titulo: "O Protocolo 4C de Auditoria Pedagógica",
         subtitulo: "A matriz de 4 dimensões para revisar materiais antes da publicação:",
         html: `
@@ -635,7 +618,6 @@
       },
       {
         categoria: "Módulo 5 · Antes e Depois",
-        tempo: "25:30 - 27:00",
         titulo: "Auditoria Prática: O Errado vs. O Certo",
         subtitulo: "O impacto real de um design instrucional baseado em evidências:",
         html: `
@@ -664,7 +646,6 @@
       },
       {
         categoria: "Módulo 5 · Checklist",
-        tempo: "27:00 - 28:00",
         titulo: "Checklist Pré-Publicação",
         subtitulo: "Marque mentalmente estes 6 itens antes de enviar qualquer aula:",
         html: `
@@ -683,7 +664,6 @@
       },
       {
         categoria: "Módulo 6 · Encerramento",
-        tempo: "28:00 - 30:00",
         titulo: "Muito Obrigado! Continue a Trilha no Site",
         subtitulo: "Explore os recursos interativos que complementam esta vídeo-aula:",
         html: `
@@ -707,10 +687,7 @@
 
     var indiceAtual = 0;
     var container = document.getElementById('container-slide');
-    var prompterTitulo = document.getElementById('prompter-titulo');
-    var prompterConteudo = document.getElementById('prompter-conteudo');
-    var gavetaPrompter = document.getElementById('gaveta-prompter');
-    // btnPrompter removido
+                // btnPrompter removido
     var btnAnterior = document.getElementById('btn-anterior');
     var btnProximo = document.getElementById('btn-proximo');
     var btnTelaCheia = document.getElementById('btn-tela-cheia');
@@ -719,8 +696,8 @@
       var s = slides[indiceAtual];
       container.innerHTML = `
         <div class="slide-topo">
-          <span class="slide-categoria">${s.categoria} (${s.tempo})</span>
-          <span class="slide-contador">Slide ${indiceAtual + 1} de ${slides.length}</span>
+          <span class="slide-categoria">${s.categoria}</span>
+          <span class="slide-contador">${indiceAtual + 1} / ${slides.length}</span>
         </div>
         <div class="slide-corpo">
           <h2>${s.titulo}</h2>
@@ -728,13 +705,10 @@
           ${s.html}
         </div>
         <div class="slide-rodape">
-          <span>OmniComp · Design Multimídia em Computação</span>
-          <span>Tempo estimado acumulado: ${s.tempo.split(' - ')[1]}</span>
+          <span>Design Multimídia em Computação</span>
+          <span>${indiceAtual + 1} / ${slides.length}</span>
         </div>
       `;
-
-      prompterTitulo.textContent = `Roteiro de Fala · Slide ${indiceAtual + 1} de ${slides.length} (${s.tempo})`;
-      prompterConteudo.textContent = s.fala;
 
       btnAnterior.disabled = (indiceAtual === 0);
       btnProximo.textContent = (indiceAtual === slides.length - 1) ? 'Finalizar' : 'Próximo ▶';
