@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação de Slides: Design Multimídia em Computação (~30 min)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-slide: #0a0f1d;
+      --card-slide: #131b2e;
+      --border-slide: #22314d;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --cyan: #38bdf8;
+      --indigo: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+      --font: "Atkinson Hyperlegible", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: #050811;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* Barra Superior de Controles da Apresentação */
+    .barra-apresentacao {
+      background: rgba(10, 15, 29, 0.95);
+      border-bottom: 1px solid var(--border-slide);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+    .titulo-deck {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-tempo {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .acoes-deck {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-slide {
+      background: var(--card-slide);
+      border: 1px solid var(--border-slide);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .btn-slide:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .btn-slide.ativo {
+      background: var(--cyan);
+      color: #000;
+      border-color: var(--cyan);
+    }
+
+    /* Palco Central do Slide */
+    .palco-slide {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .slide-moldura {
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-slide);
+      border: 2px solid var(--border-slide);
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      padding: 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-slide);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .slide-categoria {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+    }
+    .slide-contador {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .slide-corpo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-corpo h1 {
+      font-size: 2.5rem;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .slide-corpo h2 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .slide-corpo p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .grid-slide-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .box-slide {
+      background: var(--card-slide);
+      border: 1px solid var(--border-slide);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .box-slide h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .box-slide ul {
+      padding-left: 20px;
+      display: grid;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .box-slide ul li strong { color: var(--text-main); }
+
+    .slide-rodape {
+      border-top: 1px solid var(--border-slide);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Gaveta de Teleprompter / Falas */
+    .gaveta-teleprompter {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(5, 8, 17, 0.98);
+      border-top: 2px solid var(--cyan);
+      max-height: 240px;
+      overflow-y: auto;
+      padding: 18px 32px;
+      z-index: 90;
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.8);
+      user-select: text;
+    }
+    .gaveta-teleprompter.aberta {
+      transform: translateY(0);
+    }
+    .gaveta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .gaveta-titulo {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+    }
+    .gaveta-texto {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+    }
+
+    /* Navegação Rápida com Teclado */
+    .dica-teclado {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Diagrama SVG Embutido */
+    .svg-diagrama {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Controle Superior -->
+  <header class="barra-apresentacao" role="banner">
+    <div class="titulo-deck">
+      <span>OmniComp Slides</span>
+      <span class="badge-tempo">Vídeo ~30 min</span>
+      <span class="dica-teclado">(Use as setas ◀ ▶ do teclado para navegar)</span>
+    </div>
+
+    <div class="acoes-deck">
+      <button type="button" class="btn-slide" id="btn-prompter" title="Ativar/desativar teleprompter com o roteiro de fala">
+        🎙️ Modo Roteiro de Fala (T)
+      </button>
+      <button type="button" class="btn-slide" id="btn-tela-cheia" title="Entrar em tela cheia (F11)">
+        ⛶ Tela Cheia
+      </button>
+      <a href="index.html" class="btn-slide" style="text-decoration: none;">
+        ← Voltar ao Site
+      </a>
+      <button type="button" class="btn-slide" id="btn-anterior">◀ Anterior</button>
+      <button type="button" class="btn-slide ativo" id="btn-proximo">Próximo ▶</button>
+    </div>
+  </header>
+
+  <!-- Palco Central do Slide -->
+  <main class="palco-slide">
+    <article class="slide-moldura" id="container-slide" aria-live="polite">
+      <!-- O conteúdo do slide atual será renderizado aqui via JS -->
+    </article>
+  </main>
+
+  <!-- Gaveta do Teleprompter com a Fala Literal -->
+  <aside class="gaveta-teleprompter" id="gaveta-prompter" aria-label="Teleprompter com roteiro de fala do apresentador">
+    <div class="gaveta-header">
+      <span class="gaveta-titulo" id="prompter-titulo">Roteiro de Fala (Slide 1 de 18)</span>
+      <span style="font-size: 0.8rem; color: var(--text-muted);">Pressione 'T' para ocultar/exibir</span>
+    </div>
+    <div class="gaveta-texto" id="prompter-conteudo">
+      Carregando roteiro...
+    </div>
+  </aside>
+
+  <script>
+    var slides = [
+      {
+        categoria: "Módulo 1 · Introdução",
+        tempo: "00:00 - 01:30",
+        titulo: "Design Multimídia em Computação",
+        subtitulo: "Como Combinar Texto, Imagem, Áudio e Vídeo de Acordo com Objetivos de Aprendizagem",
+        html: `
+          <div style="text-align: center; margin: 30px 0;">
+            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 24px;">
+              <div style="background: var(--card-slide); padding: 16px 24px; border-radius: 12px; border: 1px solid var(--border-slide); font-size: 1.1rem; font-weight: 700;">📝 Texto</div>
+              <div style="background: var(--card-slide); padding: 16px 24px; border-radius: 12px; border: 1px solid var(--border-slide); font-size: 1.1rem; font-weight: 700;">🖼️ Imagem</div>
+              <div style="background: var(--card-slide); padding: 16px 24px; border-radius: 12px; border: 1px solid var(--border-slide); font-size: 1.1rem; font-weight: 700;">🎧 Áudio</div>
+              <div style="background: var(--card-slide); padding: 16px 24px; border-radius: 12px; border: 1px solid var(--border-slide); font-size: 1.1rem; font-weight: 700;">🎬 Vídeo</div>
+            </div>
+            <p style="font-size: 1.15rem; color: var(--cyan); font-weight: 700;">Demonstração Prática com Pilhas e Filas · Canva · Audacity · Assistentes de IA</p>
+          </div>
+        `,
+        fala: "Olá a todos e a todas! Sejam muito bem-vindos a esta vídeo-aula sobre Design Multimídia em Computação. Meu nome é [Seu Nome], e hoje nós vamos mergulhar em um tema fundamental para quem ensina ou produz conteúdo educacional: como combinar texto, imagem, áudio e vídeo de acordo com objetivos pedagógicos explícitos. Nos próximos 30 minutos, nós vamos aprender a ciência por trás da aprendizagem multimídia, demonstrar na prática como representar Estruturas de Dados usando Canva, Audacity e IA, e aplicar um protocolo rigoroso para revisar a clareza e a coerência dos materiais. Vamos começar?"
+      },
+      {
+        categoria: "Módulo 1 · O Diagnóstico",
+        tempo: "01:30 - 03:00",
+        titulo: "O Problema Clássico: O Slide 'Testamento'",
+        subtitulo: "Por que slides abarrotados de código causam fadiga cognitiva e desatenção?",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide" style="border-left: 4px solid var(--rose);">
+              <h3 style="color: var(--rose);">❌ O Erro Tradicional</h3>
+              <ul>
+                <li>Slides com 40 ou 50 linhas de código minúsculo.</li>
+                <li>Professor lendo em voz alta exatamente o texto da tela.</li>
+                <li>Ilustrações puramente decorativas sem valor pedagógico.</li>
+                <li>Músicas de fundo agitadas disputando atenção.</li>
+              </ul>
+            </div>
+            <div class="box-slide" style="border-left: 4px solid var(--cyan);">
+              <h3 style="color: var(--cyan);">🧠 O Efeito no Cérebro</h3>
+              <ul>
+                <li><strong>Sobrecarga Extrínseca:</strong> Esforço inútil para filtrar ruídos.</li>
+                <li><strong>Cegueira de Atenção:</strong> O aluno não sabe para onde olhar.</li>
+                <li><strong>Esgotamento da Memória:</strong> O cérebro desiste de processar a lógica.</li>
+                <li><strong>Regra de Ouro:</strong> Mais mídia NÃO significa mais aprendizado!</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        fala: "Vamos começar olhando para o erro mais comum que cometemos ao ensinar Computação. Muitos educadores acreditam que, para fazer uma aula completa, basta colocar todo o código no slide e ficar lendo linha por linha em voz alta. O resultado é a sobrecarga cognitiva extrínseca. O aluno gasta tanta energia tentando filtrar o excesso de texto e ignorar o ruído que não sobra capacidade mental para entender a lógica do algoritmo."
+      },
+      {
+        categoria: "Módulo 1 · Objetivos",
+        tempo: "03:00 - 04:30",
+        titulo: "Metas de Aprendizagem da Aula",
+        subtitulo: "O que você será capaz de fazer com autonomia ao final destes 30 minutos (Taxonomia de Bloom):",
+        html: `
+          <div class="box-slide">
+            <ul>
+              <li><strong>1. IDENTIFICAR</strong> os 2 canais sensoriais humanos (Teoria de Richard Mayer & Paivio).</li>
+              <li><strong>2. PLANEJAR</strong> a distribuição de um conceito entre Texto, Imagem, Áudio e Vídeo.</li>
+              <li><strong>3. DEMONSTRAR</strong> Pilhas e Filas em formatos complementares não-redundantes.</li>
+              <li><strong>4. OPERAR</strong> Canva (contraste), Audacity (limpeza e cueing) e IA (prompts de co-autoria).</li>
+              <li><strong>5. AUDITAR</strong> a clareza e coerência com a Matriz 4C pré-publicação.</li>
+            </ul>
+          </div>
+        `,
+        fala: "Para que a nossa aula tenha rigor pedagógico, estruturamos este encontro com base na Taxonomia de Bloom. Ao final destes 30 minutos, você será capaz de identificar os canais sensoriais de Mayer, planejar a divisão de mídias sem redundância, demonstrar Pilhas e Filas na prática, operar Canva, Audacity e IA com propósito pedagógico e auditar seus materiais com a Matriz 4C."
+      },
+      {
+        categoria: "Módulo 2 · Teoria Cognitiva",
+        tempo: "04:30 - 06:30",
+        titulo: "A Teoria de Richard Mayer (TCAM)",
+        subtitulo: "Como a mente humana processa palavras e imagens em canais separados:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide">
+              <h3 style="color: var(--cyan);">Canal Verbal / Auditivo 🎧</h3>
+              <p style="font-size: 0.95rem;">Entrada pelos ouvidos -> Processador fonológico -> Constrói o <strong>Modelo Verbal</strong>.</p>
+              <small style="color: var(--text-muted);">Ideal para: analogias orais, ritmo e condução do raciocínio.</small>
+            </div>
+            <div class="box-slide">
+              <h3 style="color: var(--amber);">Canal Visual / Pictórico 🖼️</h3>
+              <p style="font-size: 0.95rem;">Entrada pelos olhos -> Processador visual -> Constrói o <strong>Modelo Pictórico</strong>.</p>
+              <small style="color: var(--text-muted);">Ideal para: mapas de nós, ponteiros e arquitetura espacial.</small>
+            </div>
+          </div>
+          <div style="margin-top: 18px; padding: 14px; background: rgba(56, 189, 248, 0.1); border-radius: 8px; border: 1px solid var(--cyan); text-align: center;">
+            <strong>A Aprendizagem Significativa ocorre na INTEGRAÇÃO ATIVA dos dois modelos!</strong>
+          </div>
+        `,
+        fala: "O fundamento científico de tudo o que fazemos hoje é a Teoria Cognitiva da Aprendizagem Multimídia de Richard Mayer e a Dupla Codificação de Allan Paivio. Nós temos duas vias sensoriais independentes: o canal auditivo para palavras faladas e sons, e o canal visual para diagramas e gráficos. A memória de trabalho é minúscula! A aprendizagem só ocorre quando o cérebro integra ativamente o que ouviu com o que viu."
+      },
+      {
+        categoria: "Módulo 2 · Carga Cognitiva",
+        tempo: "06:30 - 08:30",
+        titulo: "As 3 Cargas Cognitivas de John Sweller",
+        subtitulo: "Gerenciando a energia mental finita do estudante de programação:",
+        html: `
+          <div style="display: grid; gap: 14px;">
+            <div class="box-slide" style="border-left: 4px solid var(--cyan);">
+              <strong>1. CARGA INTRÍNSECA (A complexidade natural do conceito):</strong>
+              <p style="font-size: 0.95rem; margin: 4px 0 0;">Estruturas de dados são abstratas. Não podemos eliminá-la, mas podemos segmentá-la em passos ordenados.</p>
+            </div>
+            <div class="box-slide" style="border-left: 4px solid var(--rose);">
+              <strong>2. CARGA EXTRÍNSECA (O ruído mental do design ruim):</strong>
+              <p style="font-size: 0.95rem; margin: 4px 0 0;">Cores sem contraste, código ilegível, música disputando atenção. DEVE SER REDUZIDA A ZERO!</p>
+            </div>
+            <div class="box-slide" style="border-left: 4px solid var(--emerald);">
+              <strong>3. CARGA PERTINENTE / GERMANE (A energia dedicada a aprender):</strong>
+              <p style="font-size: 0.95rem; margin: 4px 0 0;">O esforço do aluno criando conexões e assimilando a lógica LIFO/FIFO. DEVE SER MAXIMIZADA!</p>
+            </div>
+          </div>
+        `,
+        fala: "John Sweller nos ensina sobre os três tipos de carga cognitiva: a Carga Intrínseca, que é a dificuldade natural do assunto; a Carga Extrínseca, que é o veneno de um slide poluído ou áudio ruim; e a Carga Pertinente, que é o esforço nobre de compreender a lógica. O nosso papel como designers instrucionais é eliminar a carga extrínseca para liberar 100% da mente do aluno para a carga pertinente."
+      },
+      {
+        categoria: "Módulo 2 · Princípios de Ouro",
+        tempo: "08:30 - 10:30",
+        titulo: "Os 2 Princípios Indispensáveis de Mayer",
+        subtitulo: "Regras que você nunca mais deve violar ao gravar uma aula:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide" style="border-top: 4px solid var(--rose);">
+              <h3 style="color: var(--rose);">🚫 Princípio da Redundância</h3>
+              <p style="font-size: 0.95rem; color: var(--text-main);"><strong>O que NÃO fazer:</strong> Ler em voz alta o mesmo bloco de texto longo projetado na tela.</p>
+              <p style="font-size: 0.95rem; color: var(--emerald);"><strong>O que FAZER:</strong> Mostre o diagrama visual limpo e narre oralmente a linha de raciocínio.</p>
+            </div>
+            <div class="box-slide" style="border-top: 4px solid var(--cyan);">
+              <h3 style="color: var(--cyan);">✂️ Princípio da Coerência</h3>
+              <p style="font-size: 0.95rem; color: var(--text-main);"><strong>O que NÃO fazer:</strong> Colocar piadas visuais, memes aleatórios ou fundos sonoros agitados.</p>
+              <p style="font-size: 0.95rem; color: var(--emerald);"><strong>O que FAZER:</strong> Se um elemento não ensina diretamente o conceito, corte sem hesitar.</p>
+            </div>
+          </div>
+        `,
+        fala: "Dentre os princípios de Mayer, dois são vitais: o Princípio da Redundância e o da Coerência. Jamais leia palavra por palavra um slide repleto de texto. Isso sobrecarrega o canal fonológico. Em vez disso, mostre o diagrama e fale a explicação. E pela Coerência, remova tudo o que for puramente decorativo. Menos poluição visual gera mais clareza mental."
+      },
+      {
+        categoria: "Módulo 3 · O Caso Computacional",
+        tempo: "10:30 - 12:00",
+        titulo: "Estruturas de Dados Lineares: Pilha vs. Fila",
+        subtitulo: "Nosso estudo de caso prático para demonstrar a multimodalidade complementar:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide">
+              <h3 style="color: var(--cyan);">📚 PILHA (Stack)</h3>
+              <ul>
+                <li><strong>Regra:</strong> LIFO (Last In, First Out).</li>
+                <li><strong>Acesso:</strong> Uma única extremidade (Topo / Top).</li>
+                <li><strong>Operações:</strong> push() e pop() em tempo O(1).</li>
+                <li><strong>Casos Reais:</strong> Botão Ctrl+Z, Call Stack.</li>
+              </ul>
+            </div>
+            <div class="box-slide">
+              <h3 style="color: var(--emerald);">🚶 FILA (Queue)</h3>
+              <ul>
+                <li><strong>Regra:</strong> FIFO (First In, First Out).</li>
+                <li><strong>Acesso:</strong> Duas extremidades (Head e Tail).</li>
+                <li><strong>Operações:</strong> enqueue() e dequeue() em O(1).</li>
+                <li><strong>Casos Reais:</strong> Fila de impressão, buffers.</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        fala: "Agora vamos ao nosso estudo de caso prático: Pilhas versus Filas. A Pilha segue a regra LIFO: o último elemento inserido no topo é o primeiro a ser retirado. A Fila segue a regra FIFO: o primeiro que entra pela cauda é o primeiro a sair pela cabeça. Como dividir esse assunto em Texto, Imagem, Áudio e Vídeo sem que nenhum formato se repita?"
+      },
+      {
+        categoria: "Módulo 3 · Formato 1",
+        tempo: "12:00 - 13:30",
+        titulo: "O Papel Exclusivo do TEXTO",
+        subtitulo: "A mídia da precisão formal, sintaxe e contratos lógicos invariantes:",
+        html: `
+          <div class="box-slide">
+            <h3>📝 Para Que Serve o Texto?</h3>
+            <ul>
+              <li><strong>Definições matemáticas:</strong> Regras invariantes LIFO e FIFO sem ambiguidade.</li>
+              <li><strong>Contratos de métodos:</strong> Tipagem de parâmetros e valores de retorno.</li>
+              <li><strong>Garantias assintóticas:</strong> Documentação de complexidade O(1) de tempo e memória.</li>
+            </ul>
+            <div style="background: #000; padding: 12px; border-radius: 8px; margin-top: 14px; font-family: monospace; font-size: 0.9rem; color: #a5b4fc;">
+              class Pilha:<br>
+              &nbsp;&nbsp;def push(self, item: Any) -> None: ...  # O(1)<br>
+              &nbsp;&nbsp;def pop(self) -> Any: ...              # O(1)
+            </div>
+          </div>
+        `,
+        fala: "O TEXTO é a mídia do rigor formal. Ele não deve ser usado para contar piadas nem narrar conversas longas. O texto serve para documentar a sintaxe exata, a tipagem e a notação Big-O. Quando o aluno quer conferir o nome exato de um método, ele quer bater o olho em uma linha de texto concisa."
+      },
+      {
+        categoria: "Módulo 3 · Formato 2",
+        tempo: "13:30 - 15:30",
+        titulo: "O Papel Exclusivo da IMAGEM (Canva)",
+        subtitulo: "Construindo a topologia de memória e relações espaciais instantâneas:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide" style="text-align: center;">
+              <h3 style="color: var(--cyan);">Pilha: Topologia Vertical</h3>
+              <div style="margin: 16px 0; border: 2px solid var(--cyan); border-radius: 0 0 10px 10px; width: 140px; margin: 0 auto; padding: 8px; display: grid; gap: 6px;">
+                <div style="background: var(--amber); color: #000; font-weight: 700; padding: 4px; border-radius: 4px;">Item 3 (Topo) ←</div>
+                <div style="background: var(--cyan); color: #000; font-weight: 700; padding: 4px; border-radius: 4px;">Item 2</div>
+                <div style="background: var(--cyan); color: #000; font-weight: 700; padding: 4px; border-radius: 4px;">Item 1 (Fundo)</div>
+              </div>
+              <small style="color: var(--text-muted);">Apenas 1 abertura superior sinalizada!</small>
+            </div>
+            <div class="box-slide" style="text-align: center;">
+              <h3 style="color: var(--emerald);">Fila: Topologia Horizontal</h3>
+              <div style="margin: 24px 0; border-top: 2px solid var(--emerald); border-bottom: 2px solid var(--emerald); padding: 12px; display: flex; justify-content: center; gap: 8px;">
+                <span style="font-size: 0.8rem; color: var(--rose); font-weight: 700;">Saída ←</span>
+                <span style="background: var(--emerald); color: #000; font-weight: 700; padding: 4px 10px; border-radius: 4px;">1º</span>
+                <span style="background: var(--emerald); color: #000; font-weight: 700; padding: 4px 10px; border-radius: 4px;">2º</span>
+                <span style="background: var(--emerald); color: #000; font-weight: 700; padding: 4px 10px; border-radius: 4px;">3º</span>
+                <span style="font-size: 0.8rem; color: var(--cyan); font-weight: 700;">← Entrada</span>
+              </div>
+              <small style="color: var(--text-muted);">Duas extremidades opostas (Head e Tail).</small>
+            </div>
+          </div>
+        `,
+        fala: "A IMAGEM faz o que o texto não consegue: construir relações espaciais instantâneas. No Canva, desenhamos a Pilha verticalmente com uma única abertura no topo e uma cor de destaque no ponteiro ativo. Já a Fila é ilustrada horizontalmente com saída pela esquerda e entrada pela direita. Em um único segundo visual, o aluno internaliza a geometria da estrutura."
+      },
+      {
+        categoria: "Módulo 3 · Formatos 3 e 4",
+        tempo: "15:30 - 17:30",
+        titulo: "O Papel do ÁUDIO e do VÍDEO",
+        subtitulo: "Analogias mentais dialógicas e a demonstração da passagem do tempo:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide" style="border-left: 4px solid var(--emerald);">
+              <h3 style="color: var(--emerald);">🎧 Áudio no Audacity</h3>
+              <ul>
+                <li><strong>Analogia Humana:</strong> Pilha de pratos na pia vs. fila do restaurante.</li>
+                <li><strong>Ritmo e Pausas:</strong> Dá tempo para a mente consolidar o raciocínio.</li>
+                <li><strong>Cueing Auditivo:</strong> Som curto de 'pop' no instante da inserção.</li>
+              </ul>
+            </div>
+            <div class="box-slide" style="border-left: 4px solid var(--indigo);">
+              <h3 style="color: var(--indigo);">🎬 Vídeo / Animação</h3>
+              <ul>
+                <li><strong>Passagem do Tempo:</strong> Mostra o estado mudando continuamente.</li>
+                <li><strong>Fluxo de Memória:</strong> O bloco descendo e o ponteiro subindo.</li>
+                <li><strong>Erros Dinâmicos:</strong> O transbordamento em Stack Overflow.</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        fala: "O ÁUDIO traz as analogias do cotidiano: a pilha de pratos na pia e a fila do restaurante universitário, além de efeitos acústicos que sinalizam a inserção de nós. E o VÍDEO é a mídia do tempo: ele serve para animar a mudança contínua de estado e mostrar o momento em que a pilha transborda em Stack Overflow. Cada mídia tem seu papel exclusivo."
+      },
+      {
+        categoria: "Módulo 4 · Prática com Canva",
+        tempo: "17:30 - 19:30",
+        titulo: "Mão na Massa 1: Design Visual no Canva",
+        subtitulo: "Diretrizes essenciais para gráficos didáticos acessíveis:",
+        html: `
+          <div class="box-slide">
+            <ul>
+              <li><strong>Contraste Acessível (WCAG AA):</strong> Mínimo de 4,5:1 para texto normal. Teste fundos escuros (#0a0f1d) com fontes brancas (#f8fafc).</li>
+              <li><strong>Tipografia em 3 Níveis:</strong> Título em 28-32pt, Subtítulo em 18-20pt e Corpo em 14-16pt. Use Atkinson Hyperlegible.</li>
+              <li><strong>Sinalização com Cor Semântica:</strong> Reserve a cor de realce vibrante (laranja #fbbf24) exclusivamente para o elemento em foco (o ponteiro Top).</li>
+              <li><strong>Eliminação de Clutter:</strong> Remova qualquer moldura ou ícone decorativo que não pertença à lógica computacional.</li>
+            </ul>
+          </div>
+        `,
+        fala: "No Canva, o maior perigo é transformar o slide em poluição visual. Siga três regras de ferro: contraste mínimo de 4,5 para 1 conforme a WCAG AA, hierarquia tipográfica estrita em três níveis com fontes acessíveis como a Atkinson Hyperlegible, e cor semântica: use a cor viva apenas no elemento em foco, nunca como mero adorno."
+      },
+      {
+        categoria: "Módulo 4 · Prática com Audacity",
+        tempo: "19:30 - 21:30",
+        titulo: "Mão na Massa 2: Engenharia de Áudio no Audacity",
+        subtitulo: "3 passos simples para gravações com qualidade profissional:",
+        html: `
+          <div style="display: grid; gap: 12px;">
+            <div class="box-slide">
+              <strong>Passo 1 · Redução de Ruído:</strong>
+              <p style="font-size: 0.95rem; margin-top: 4px;">Grave 5 segundos de silêncio no início. Selecione o trecho, abra <em>Efeitos -> Redução de Ruído</em>, clique em 'Obter Perfil de Ruído' e aplique na faixa inteira.</p>
+            </div>
+            <div class="box-slide">
+              <strong>Passo 2 · Normalização de Volume:</strong>
+              <p style="font-size: 0.95rem; margin-top: 4px;">Vá em <em>Efeitos -> Volume e Compressão -> Normalizar</em> em <strong>-1.0 dB</strong> para manter o som uniforme sem estourar no fone do aluno.</p>
+            </div>
+            <div class="box-slide">
+              <strong>Passo 3 · Sinalização Acústica (Cueing):</strong>
+              <p style="font-size: 0.95rem; margin-top: 4px;">Insira um clique sutil (0,2s) exatamente no instante em que o dado entra na estrutura.</p>
+            </div>
+          </div>
+        `,
+        fala: "No Audacity, três passos transformam seu áudio: primeiro, grave 5 segundos de silêncio inicial para obter o perfil de ruído e limpar o chiado do ventilador; segundo, normalize os picos de volume a -1.0 dB para não estourar no fone de quem escuta; e terceiro, adicione cliques ou efeitos táteis muito discretos para sinalizar a inserção de nós de memória."
+      },
+      {
+        categoria: "Módulo 4 · Prática com IA",
+        tempo: "21:30 - 23:00",
+        titulo: "Mão na Massa 3: Assistentes de IA como Críticos",
+        subtitulo: "Como extrair co-autoria inteligente do ChatGPT, Claude ou Gemini:",
+        html: `
+          <div class="box-slide">
+            <h3 style="color: var(--cyan);">Prompt Calibrado para Teste de Clareza</h3>
+            <div style="background: #000; padding: 14px; border-radius: 8px; font-family: monospace; font-size: 0.9rem; color: #a5b4fc; line-height: 1.5;">
+              "Atue como um estudante de primeiro semestre de Computação sem base em programação.<br>
+              Leia o meu roteiro de aula sobre [CONCEITO] abaixo e me aponte:<br>
+              1. Três termos técnicos que parecem confusos ou sem explicação prévia.<br>
+              2. Duas analogias cotidianas simples para explicar a lógica central.<br>
+              3. Onde o texto está competindo com a imagem visual."
+            </div>
+          </div>
+        `,
+        fala: "A Inteligência Artificial deve ser usada como parceira crítica de co-criação. Use prompts especializados pedindo para a IA agir como um estudante iniciante e apontar termos confusos no seu texto, sugerir analogias do cotidiano e alertar sobre trechos onde a fala está competindo com a imagem. Isso acelera o refinamento do seu roteiro."
+      },
+      {
+        categoria: "Módulo 4 · Momento Interativo",
+        tempo: "23:00 - 24:00",
+        titulo: "⏸️ Mini-Desafio: Pause o Vídeo Agora!",
+        subtitulo: "Teste rápido de 2 minutos para consolidar seu aprendizado:",
+        html: `
+          <div class="box-slide" style="text-align: center; padding: 32px;">
+            <h3 style="font-size: 1.4rem; color: var(--amber); margin-bottom: 16px;">Como você ensinaria RECURSÃO?</h3>
+            <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 20px;">
+              Pense na partição não-redundante:
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; font-size: 1rem; color: var(--text-muted);">
+              <span>📝 <strong>Texto:</strong> Caso-base</span>
+              <span>🖼️ <strong>Imagem:</strong> Call Stack</span>
+              <span>🎧 <strong>Áudio:</strong> Bonecas Matrioshka</span>
+            </div>
+            <p style="margin-top: 24px; font-weight: 700; color: var(--cyan);">Pause o vídeo, anote em um papel e dê play para conferir!</p>
+          </div>
+        `,
+        fala: "Chegou o nosso momento interativo! Pause o vídeo agora por dois minutos. Imagine que seu objetivo é ensinar Recursão. O que você colocaria no texto? O que desenharia na imagem? E o que falaria no áudio sem repetir texto? Pause agora... estou esperando! Pronto! Se você colocou no texto o caso-base, na imagem a pilha de chamadas e no áudio a analogia das bonecas russas, você aplicou a multimodalidade com perfeição!"
+      },
+      {
+        categoria: "Módulo 5 · Revisão e Auditoria",
+        tempo: "24:00 - 25:30",
+        titulo: "O Protocolo 4C de Auditoria Pedagógica",
+        subtitulo: "A matriz de 4 dimensões para revisar materiais antes da publicação:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide">
+              <h3 style="color: var(--cyan);">1. Clareza</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Vocabulário adequado ao nível do aluno, tipografia legível e contraste aprovado.</p>
+            </div>
+            <div class="box-slide">
+              <h3 style="color: var(--amber);">2. Coerência</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Eliminação radical de ruídos sonoros, memes e elementos decorativos supérfluos.</p>
+            </div>
+            <div class="box-slide">
+              <h3 style="color: var(--rose);">3. Carga Cognitiva</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Contiguidade espacial: rótulos integrados diretamente ao código e diagramas.</p>
+            </div>
+            <div class="box-slide">
+              <h3 style="color: var(--emerald);">4. Complementaridade</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Cada mídia contribui com um ângulo exclusivo; nenhuma repete a outra.</p>
+            </div>
+          </div>
+        `,
+        fala: "No Módulo 5, aplicamos o Protocolo 4C para revisar os materiais. Quatro perguntas obrigatórias: Clareza: a linguagem está acessível e com contraste? Coerência: eliminamos qualquer elemento que não ensina? Carga Cognitiva: legendas estão coladas aos gráficos? Complementaridade: cada mídia traz um ângulo exclusivo sem redundância?"
+      },
+      {
+        categoria: "Módulo 5 · Antes e Depois",
+        tempo: "25:30 - 27:00",
+        titulo: "Auditoria Prática: O Errado vs. O Certo",
+        subtitulo: "O impacto real de um design instrucional baseado em evidências:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide" style="border: 2px solid var(--rose);">
+              <h3 style="color: var(--rose);">❌ Material Poluído (Ruim)</h3>
+              <ul style="font-size: 0.9rem;">
+                <li>Fundo degradê chamativo disputando contraste.</li>
+                <li>30 linhas de código coladas em imagem estática.</li>
+                <li>Professor lendo código linha por linha.</li>
+                <li>Música de fundo agitada gerando cansaço.</li>
+              </ul>
+            </div>
+            <div class="box-slide" style="border: 2px solid var(--emerald);">
+              <h3 style="color: var(--emerald);">✅ Material Multimodal (Bom)</h3>
+              <ul style="font-size: 0.9rem;">
+                <li>Fundo escuro limpo (#0a0f1d) com contraste AA.</li>
+                <li>Diagrama vetorial com seta no ponteiro ativo.</li>
+                <li>Voz pausada explicando a analogia do cotidiano.</li>
+                <li>Efeito sonoro discreto de 'pop' na inserção.</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        fala: "Vejam o contraste na tela: à esquerda, o slide sobrecarregado, ilegível e barulhento que afasta os estudantes. À direita, a aplicação de tudo o que vimos hoje: fundo sóbrio, diagrama vetorial claro, sinalização por cor no ponteiro e locução fluida. O aprendizado torna-se prazeroso e duradouro."
+      },
+      {
+        categoria: "Módulo 5 · Checklist",
+        tempo: "27:00 - 28:00",
+        titulo: "Checklist Pré-Publicação",
+        subtitulo: "Marque mentalmente estes 6 itens antes de enviar qualquer aula:",
+        html: `
+          <div class="box-slide">
+            <ul>
+              <li>[ ] Objetivo de aprendizagem formulado com verbo claro de Bloom.</li>
+              <li>[ ] Imagens mostram estados de memória e topologia espacial.</li>
+              <li>[ ] Áudio explica a lógica e traz analogias sem ler texto repetido.</li>
+              <li>[ ] Áudio gravado e normalizado no Audacity sem ruídos de fundo.</li>
+              <li>[ ] Contraste visual e tipografia testados e aprovados no Canva.</li>
+              <li>[ ] Material auditado pelo Protocolo 4C e refinado com apoio de IA.</li>
+            </ul>
+          </div>
+        `,
+        fala: "Antes de publicar seu vídeo ou disponibilizar seu material, use este checklist de seis itens. Se todos estiverem cumpridos, você tem a certeza de que seu recurso respeita os limites da cognição humana e entrega uma experiência pedagógica nota dez."
+      },
+      {
+        categoria: "Módulo 6 · Encerramento",
+        tempo: "28:00 - 30:00",
+        titulo: "Muito Obrigado! Continue a Trilha no Site",
+        subtitulo: "Explore os recursos interativos que complementam esta vídeo-aula:",
+        html: `
+          <div class="grid-slide-2">
+            <div class="box-slide">
+              <h3 style="color: var(--cyan);">📖 E-book Interativo</h3>
+              <p style="font-size: 0.95rem;">Aprofunde os 4 capítulos no seu ritmo e salve a versão em PDF formatada para o FlipHTML5.</p>
+            </div>
+            <div class="box-slide">
+              <h3 style="color: var(--emerald);">🎮 Simulador Dinâmico</h3>
+              <p style="font-size: 0.95rem;">Pratique inserções e remoções de Pilhas e Filas com física visual e sintetizador de áudio tátil.</p>
+            </div>
+          </div>
+          <div style="margin-top: 18px; text-align: center; padding: 14px; background: rgba(56, 189, 248, 0.08); border-radius: 8px;">
+            <p style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0;">Faça a Avaliação Formativa de 10 Questões no portal web!</p>
+          </div>
+        `,
+        fala: "Chegamos ao final da nossa vídeo-aula! Vimos como combinar texto, imagem, áudio e vídeo de forma harmoniosa no ensino de Computação. Convido todos a continuarem a trilha no nosso portal web: leiam o nosso E-book Interativo, experimentem o Simulador de Pilhas e Filas e realizem a Avaliação Formativa de 10 questões com feedback imediato. Muito obrigado pela atenção de todos, bons estudos e até a próxima!"
+      }
+    ];
+
+    var indiceAtual = 0;
+    var container = document.getElementById('container-slide');
+    var prompterTitulo = document.getElementById('prompter-titulo');
+    var prompterConteudo = document.getElementById('prompter-conteudo');
+    var gavetaPrompter = document.getElementById('gaveta-prompter');
+    var btnPrompter = document.getElementById('btn-prompter');
+    var btnAnterior = document.getElementById('btn-anterior');
+    var btnProximo = document.getElementById('btn-proximo');
+    var btnTelaCheia = document.getElementById('btn-tela-cheia');
+
+    function renderizarSlide() {
+      var s = slides[indiceAtual];
+      container.innerHTML = `
+        <div class="slide-topo">
+          <span class="slide-categoria">${s.categoria} (${s.tempo})</span>
+          <span class="slide-contador">Slide ${indiceAtual + 1} de ${slides.length}</span>
+        </div>
+        <div class="slide-corpo">
+          <h2>${s.titulo}</h2>
+          <p>${s.subtitulo}</p>
+          ${s.html}
+        </div>
+        <div class="slide-rodape">
+          <span>OmniComp · Design Multimídia em Computação</span>
+          <span>Tempo estimado acumulado: ${s.tempo.split(' - ')[1]}</span>
+        </div>
+      `;
+
+      prompterTitulo.textContent = `Roteiro de Fala · Slide ${indiceAtual + 1} de ${slides.length} (${s.tempo})`;
+      prompterConteudo.textContent = s.fala;
+
+      btnAnterior.disabled = (indiceAtual === 0);
+      btnProximo.textContent = (indiceAtual === slides.length - 1) ? 'Finalizar' : 'Próximo ▶';
+    }
+
+    function avancar() {
+      if (indiceAtual < slides.length - 1) {
+        indiceAtual++;
+        renderizarSlide();
+      }
+    }
+
+    function retroceder() {
+      if (indiceAtual > 0) {
+        indiceAtual--;
+        renderizarSlide();
+      }
+    }
+
+    btnProximo.addEventListener('click', avancar);
+    btnAnterior.addEventListener('click', retroceder);
+
+    // Teclas de atalho para apresentação
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        avancar();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        retroceder();
+      } else if (e.key === 't' || e.key === 'T') {
+        togglePrompter();
+      }
+    });
+
+    function togglePrompter() {
+      var aberta = gavetaPrompter.classList.toggle('aberta');
+      btnPrompter.classList.toggle('ativo', aberta);
+    }
+    btnPrompter.addEventListener('click', togglePrompter);
+
+    btnTelaCheia.addEventListener('click', function() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(function(){});
+      } else {
+        document.exitFullscreen().catch(function(){});
+      }
+    });
+
+    renderizarSlide();
+  </script>
+</body>
+</html>
