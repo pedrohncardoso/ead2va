@@ -264,9 +264,6 @@
     </div>
 
     <div class="acoes-deck">
-      <button type="button" class="btn-slide" id="btn-prompter" title="Ativar/desativar teleprompter com o roteiro de fala">
-        🎙️ Modo Roteiro de Fala (T)
-      </button>
       <button type="button" class="btn-slide" id="btn-tela-cheia" title="Entrar em tela cheia (F11)">
         ⛶ Tela Cheia
       </button>
@@ -284,17 +281,6 @@
       <!-- O conteúdo do slide atual será renderizado aqui via JS -->
     </article>
   </main>
-
-  <!-- Gaveta do Teleprompter com a Fala Literal -->
-  <aside class="gaveta-teleprompter" id="gaveta-prompter" aria-label="Teleprompter com roteiro de fala do apresentador">
-    <div class="gaveta-header">
-      <span class="gaveta-titulo" id="prompter-titulo">Roteiro de Fala (Slide 1 de 18)</span>
-      <span style="font-size: 0.8rem; color: var(--text-muted);">Pressione 'T' para ocultar/exibir</span>
-    </div>
-    <div class="gaveta-texto" id="prompter-conteudo">
-      Carregando roteiro...
-    </div>
-  </aside>
 
   <script>
     var slides = [
@@ -724,7 +710,7 @@
     var prompterTitulo = document.getElementById('prompter-titulo');
     var prompterConteudo = document.getElementById('prompter-conteudo');
     var gavetaPrompter = document.getElementById('gaveta-prompter');
-    var btnPrompter = document.getElementById('btn-prompter');
+    // btnPrompter removido
     var btnAnterior = document.getElementById('btn-anterior');
     var btnProximo = document.getElementById('btn-proximo');
     var btnTelaCheia = document.getElementById('btn-tela-cheia');
@@ -784,9 +770,9 @@
 
     function togglePrompter() {
       var aberta = gavetaPrompter.classList.toggle('aberta');
-      btnPrompter.classList.toggle('ativo', aberta);
+      
     }
-    btnPrompter.addEventListener('click', togglePrompter);
+    // listener removido
 
     btnTelaCheia.addEventListener('click', function() {
       if (!document.fullscreenElement) {
